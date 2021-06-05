@@ -4,22 +4,21 @@
 
 ## Project Outline
 
-- [Bird Friend](#) is a photo sharing web app that allows users to create, search, and edit profiles for birds they've photographed, and comment on or like profiles from other users.
+- [Bird Friend](#) is a photo sharing web application. Users can create, search, and edit photo profiles for birds they've spotted, and comment or like photo profiles from other users.
 - All users, even those non-registered, can browse through uploaded photos of birds and read other people's comments to get a sense of the community.
 - After browsing, users who want to get more involved by commenting or uploading their own photos will receive prompts to register to gain this functionality.
 - This creates a deeper link between the user and the application, allowing the site developer to build a sense of community.
-- This app features a visitor landing page, user registration and login, a photo gallery, a like feature, and the user ability to edit or delete their uploads and profile.
+- This app features a landing page, photo galleries, user registration and login forms, comment and like features, and the user ability to edit or delete their bird photo profiles and user profiles.
 - The technologies used to build this app include HTML, [Tailwind CSS](https://tailwindcss.com/docs), JavaScript, Python, [Flask](https://palletsprojects.com/p/flask/), and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
 ## Project Goals
 
 - To buid a fun community around casual bird spotting in cities and the countryside, as many people don't really take the time to stop and really see birds in the same way as other wildlife ; dogs, cats, foxes, deer.
-- To sell cameras on behalf of a 3rd party through native advertisement. Camera is included as a data field on the Bird Object and, while many users select their iPhone, this field on Featured Photos all link back to that 3rd party supplier.
+- To drive camera sales on behalf of a 3rd party through native advertisement, as a way of making the site and community more sustainable for the site developer.
 
 ## Live project
 
 **[View the live project here](#)**
-
 
 ## Table of Contents
 
@@ -76,12 +75,12 @@
 #### User Goals
 
 The first-time user is looking for:
-- A web app that brings them closer to the everyday, almost invisible birds all around them.
-- A fun, relaxed community that's casual, not as encyclopedia-like as other bird spotting sites.
+- A web app that brings them closer to everyday, almost invisible, birds.
+- A fun, relaxed community that's more relaxed and fun than many birding sites.
 
 The returning user is looking for:
-- A community, where they can develop a new-found interest.
-- A user-profile that makes them feel recognised, and where they can revisit favorite photos.
+- A community, with whom they can enjoy their new-found interest.
+- A user-profile that makes them feel seen, and where they can revisit favorite photos.
 
 The frequent user is looking for:
 - A way to measure the popularity of their own photo uploads.
@@ -90,7 +89,7 @@ The frequent user is looking for:
 #### Site Developer Goals
 The Developer is looking to:
 - Create an inviting, community-drive application to share their passion for birds.
-- Develop a modest income flow from 3rd party camera sales whereby the site pays for itself monthly.
+- Develop a small income from advertising 3rd party cameras so the site can pay for itself.
 
 ### User Stories
 
@@ -99,7 +98,7 @@ The Developer is looking to:
   - I want to a colourful, vibrant landing page that grabs me.
   - I'd like to see all the site content, and some of the features, before registration.
   - I'll only register if it's the only way to comment, like and upload photos.
-  - I'd like to eventually add my photos to the site, but it has to be simple.
+  - I'd like to eventually add my photos to the site, but doing so must be simple.
 
 - Repeat users
 
@@ -143,7 +142,7 @@ Broken into three categories, the app will focus on the following target audienc
 - **Persona:**
      - New interest in birds
      - Like taking photos casually
-     - Enjoy social features when sharing media (likes/comments)
+     - Enjoy typical social features when sharing photos, e.g. likes & comments
 
 - **Psychographics:**
      - Personality & Attitudes:
@@ -163,16 +162,15 @@ The website needs to enable the **user** to:
 - Search Bird database by:
     - Bird Type
     - Camera Type
-    - Name (frequent users)
+    - Bird Nickname (frequent users)
 
 - View Photo Gallery with the following information:
+
     - Bird Type
     - Camera Type
-    - Location Spotted
-    - Name (Optional)
-    - User Name
-    - Upload Time
-    - Liked By
+    - Bird Nickname
+    - Uploader Name
+    - Likes
 
 - Upload and edit their own Birds
 
@@ -182,16 +180,13 @@ The website needs to enable the **user** to:
 
 The website needs to enable the **site developer** to:
 - Provide a community-driven photo-sharing app around birds
-- Make 3rd party camera sales from users
+- Drive 3rd party camera sales from users
 - Edit/delete inappropriate content
 
 With these goals in mind, a strategy table was created to determine the trade-off between importance and viability with the following results:
 
-**Strategy Table for User Management:**
-![Strategy Table for User Management](static/images/readme-files/user-management-st.png "User Management Strategy Table")
-
-**Strategy Table for Bird Respository Management:**
-![Strategy Table for Baking Respository Management](static/images/readme-files/baking-repo-st.png "Baking Repository Strategy Table")
+**Strategy Table for Bird Friend:**
+![Strategy Table for Bird Friend Web App](static/images/readme-files/strategy-table.png "Strategy Table for Bird Friend Web App")
 
 <strong>2. <u>Scope</u></strong>
 
@@ -203,17 +198,15 @@ A scope was defined in order to clearly identify what needed to be done in order
      - Searchable photo Gallery with following info:
         - Bird Type
         - Camera Type
-        - Location Spotted
-        - Name (Optional)
-        - User Name
-        - Upload Time
+        - Bird Nickname
+        - Uploader Name
         - Liked By
      - Simple registration process
      - Customisable User Profile
         - Custom User Name/Password
         - Upload their own photos
         - Save favourite photos
-     - Developer contact information
+     - Site Developer contact form
 
 - **Functionality Requirements**
      - The user will be able to:
@@ -229,27 +222,27 @@ A scope was defined in order to clearly identify what needed to be done in order
         - Create Photo Uploads:
             - Bird Type
             - Camera Type
-            - Location Spotted
-            - Name (Optional)
-            - Get in contact with the Developer
+            - Bird Nickname
+            - Uploader Name
+        - Interact with other users
+            - Like other users photos
+            - Comment on other users photos
+        - Get in contact with the Developer
 
 <strong>3. <u>Structure</u></strong>
 
 The information architecture was organized in order to ensure that users could navigate through the site with ease and efficiency, with the following results: 
 
-**Information Architecture for User Management:**
-![Information Architecture for User Management](static/images/readme-files/user-management-ia.png "User Management Information Architecture")
-
-**Information Architecture for Baking Respository Management:**
-![Information Architecture for Baking Respository Management](static/images/readme-files/baking-repo-ia.png "Baking Repository Information Architecture")
+**Information Architecture for Bird Friend:**
+![Information Architecture for Bird Friend Web App](static/images/readme-files/site-map.png "Bird Friend Information Architecture")
 
 <strong>4. <u>Skeleton</u></strong>
 
-Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Workspace") with providing a positive user experience in mind:
+Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file/OYjqFGfKfMTxEQ64mMQm2T/Bird-Friend?node-id=59%3A0 "Bird Friend Figma Workspace").
 
 - Home Page:
 
-     ![Strategy Table for Baking Respository Management](static/images/readme-files/.png "Baking Repository Strategy Table")
+     ![](static/images/readme-files/.png "")
 
 
 ## Design
@@ -261,22 +254,28 @@ Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Wo
 
      - The soft, pastel colour scheme was picked to offset the most commonly occuring, vibrant background colors in casual photographs of birds.
 
-    ![Colour Palette](static/images/readme-files/palette.png "Colour Palette")
+    ![Colour Palette](static/images/readme-files/color-palette.png "Colour Palette")
 
 
 - <strong>Typography</strong>
 
-     - The primary font chosen is [Mallanna](https://fonts.google.com/specimen/Mallanna "Link to Mallanna Google Fonts page"). A sans-serif typeface, Mallanna stands out in comparison to more common typefaces like Open Sans and Roboto. It's thickness, and roundness is visually pleasing, and its individuality says this is something new, and out of the ordinary.
+     - The primary font chosen and used on the photo gallery, and bird / user profiles is [Lato](https://fonts.google.com/specimen/Lato "Link to Lato Google Fonts page"). Lato means summer in Polish, and the font reflects its namesake with warmth in its rounded design.
 
-        ![Mallanna Typeface Example](static/images/readme-files/worksans-ex.png "Work Sans Typeface Example")
+        ![Lato Typeface Example](static/images/readme-files/lato.png "Lato Typeface Example")
 
-     - The Secondary font (headings font) is [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab "Link to Roboto Slab Google Fonts page"). This font was chosen to complements Mallanna with its mirroring thickness, and open friendly curves. It's also a less widely used typeface, and helps give the app extra character.
+     - The Secondary fonts are [Jaldi](https://fonts.google.com/specimen/Jaldi "Link to Jaldi Google Fonts page") and [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab "Link to Roboto Slab Google Fonts page"). 
+     
+     - Jaldi is used on the site landing page, and for site headings. It pairs really well with Lato, because it is similarly rounded and warm.
 
-        ![Roboto Slab Typeface Example](static/images/readme-files/indieflower-ex.png "Indie Flower Typeface Example")
+        ![Jaldi Typeface Example](static/images/readme-files/jaldi.png "Jaldi Typeface Example")
+    
+    - Roboto Slab is used on site links, and for site buttons. Its bolded, thick look is perfect for call-to-action elements like links and buttons, but its curves match it well with Lato and Jaldi.
+
+        ![Jaldi Typeface Example](static/images/readme-files/jaldi.png "Jaldi Typeface Example")
 
 - <strong>Imagery</strong>
 
-     - The imagery used was created by the developer using the application [Procreate](https://procreate.art/) in order to create a consistency of the elements while maintaining the look and feel of the application.
+     - The imagery used was saved from the Facebook Group [Garden Birds of Ireland](https://www.facebook.com/groups/158412932544035), which is in the public domain. However, because no written permission was obtained, this imagery is used purely within the educational confines of a Code Institue Milestone Project.
 
 [Back to top ⇧](#table-of-contents)
 
@@ -338,34 +337,32 @@ Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Wo
 
 #### Landing page
 
-- If user's are not signed in, then they are greeted with a fun, friendly landing page.
+- If the user isn't signed in, then they are greeted with a fun, friendly landing page.
 - There are clear links to the Photo Gallery and to Login or Register.
-- If the user is already signed in, the landing page redirects to the Photo Gallery.
+- If the user is already signed in, the landing page redirects to the Popular Photo Gallery.
 - The footer is viewable on scroll, but initially hidden off screen to focus the user on the main landing page design and image 
 	
 #### Gallery page.
--  Gallery page shows six uploaded birds per page
--  Pagination buttons are below pictures to easily navigate between pages
--  Options to view most popular or newly uploaded birds
--  Default view is to show the most popular bird
+-  The default gallery page is the Popular Photo Gallery
+-  Option to view newly uploaded birds
 -  Clear distinction between 'Popular' and 'New' depending on which page the user is on
--  There is a different wallpaper depending on whether the user is in 'Popular' or 'New'
+-  The sub title navigation link is highlighted yellow for the page that the user is on.
 -  Each bird photo card on the gallery page contains links to:
 	- Like the bird
-	- See the main photo page of the bird with larger picture
+	- See the main photo page of the bird with larger picture, more info and comments.
 	- Link to the person who uploaded the bird's photo (if user is not also the uploader)
 	- Links to delete or edit the bird, if user is the uploader 
 
-- There is a large button at the bottom of the gallery to upload a new bird photo 
+- There is a button at the bottom of the gallery to upload a new bird photo 
 
 #### Navigation
 
 - There are two different navigations, depending on whether you are on mobile or tablet+
 - On mobile there is a bottom navigation bar, making it easy to access the main links with your thumb (visible once the user has signed in)
 - The top mobile navigation simply consists of a 'My Profile' button (or Login/Register buttons if a user has not yet signed in)
-![bottom nav image](docs/screenshots/gallery_mobile.png)
+![bottom nav image](#)
 - On desktop, the links that are present in the mobile bottom navigation are instead added alongside the 'My Profile' button in the top navigation bar
-![top nav only](docs/screenshots/gallery_desktop.png)
+![top nav only](#)
 
 #### Contact page.
 
@@ -378,7 +375,7 @@ Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Wo
 
 ### User Pages
 
-#### Register / Login
+#### Register / Login Forms
 
 - Both the Register and Login pages have a simple, clean form asking for username / password
 - Register form asks for email and password confirmation
@@ -395,12 +392,12 @@ Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Wo
 
 #### Profile
 
-- Displays user's chosen avatar
+- Displays user's chosen profile picture
 - Displays any bird photos user has uploaded
 - Displays any birds this user has liked / favorited
 - If user views their own profile, they see links to:
-	- Change their avatar
-		- Here you can choose from 10 bird themed user avatars
+	- Change their profile picture
+		- Here you can choose to upload an image file from your computer
 	- Edit your account
 		- Here you can change your username or email 
 	- Delete your account 
@@ -412,7 +409,7 @@ Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Wo
 
 - Displays a larger thumbnail photo of the bird, without cropping to card aspect ratio
 	- This image features a link to see original, user upload full-size image
-- Displays photo info: Bird Type, Camera Type, User Name, Upload Date and Liked By
+- Displays photo info: Bird Type, Camera Type, Bird Nickname, Uploader, Liked By and the Photo Backstory.
 - If current user is photo's owner, then displays buttons to edit or delete photo of bird
 	- Edit Bird Photo will load a form with any information pre-filled
 	- Uploading a new photo will replace the previous Photo in Bird Friend's cloudinary database
@@ -432,7 +429,7 @@ Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Wo
 
 - There is an admin user account which has permissions to delete or edit any user, photo or comment on the site
 - A preview of the admin account on the gallery home page will show edit/delete options for all uploaded photos of birds, which are normally hidden unless the uploader is the current user:
-![admin_view](docs/screenshots/admin_view.png)
+![admin_view](#)
 - Links for deleting/editing comments and users are also shown in this way for admins.
 
 ### Custom Error Pages
@@ -559,90 +556,147 @@ Wireframe mockups were created in a [Figma Workspace]( "Link to Bake It Figma Wo
 
 **[Please see TESTING.md](TESTING.md)**
 
-## Deployment
+To further develop this project, a clone can be made using the following steps:
+### 1. Database Creation
+The application is connected to a [MongoDB Atlas](https://mongodb.com/ "Link to MongoDB Homeapage") Cluster. A Project database can be created using the following steps:
 
-### Requirements To Deploy:
-- Python3
-- Github account
-- MongoDB account
-- Heroku account
+1. Log into [MongoDB](https://account.mongodb.com/account/login "Link to MongoDB login page") or [create an account](https://account.mongodb.com/account/register "Link to MongoDB sign-up page").
+2. Locate and select the `New Project` button on the right side of the page, and give your project a name. Navigate to the project page.
+3. Locate and select the `Create a New Cluster` button on the right side of the page. Once selected:
+     - Choose **Shared Cluster** which is a free option.
+     - Select your **Cloud Provider** and **Region** (in this instance: **AWS** and **Ireland**).
+     - Click on **Cluster Tier** and select tier of preference (in this instance: **Basic M0 tier**).
+     - Click on **Cluster Name** and create your cluster name.
+4. Locate and select `Database Access` on the left side of the page. Once selected, click `Add New Database User`:
+     - Choose `Password` for the **Authentication Method**
+     - Enter a username and password of your choosing
+     - Ensure `Read and write to any database` is selected in **Database User Privileges**
+     - Add User
+5. Locate and select `Network Access` under `Database Access` on the left side of the page. Once selected, click `Add IP Address`:
+     - Select `Allow Access from anywhere` (This is not recommended for full-production applications).
+     - Select `Confirm`.
+6. Locate and select `Clusters` on the left side of the page (must be provisioned first).
+7. Click `Collections`, then `+ Create Database` to start adding documents to your database collections:
+     - Enter chosen `Database Name`
+     - Enter chosen `Collection Name`
+     - Select `Create`
+8. Click `Create Collection` and create the necessary collections. See [Information Architecture](#Information-Architecture) for reference of the collections created for this project.
 
-### Cloning This Project:
-To create a clone, follow the following steps.
+### 2. Local Copy Creation
+A Local Clone of the repository can be made in two ways:
 
-1. Log in to GitHub and go to the repository.
-2. Click on the button with the text “Code”.    
-3. Click “Open with GitHub Desktop” and follow the prompts in the GitHub Desktop Application or follow the instructions from [GitHub](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to see how to clone the repository in other ways.
+- **Forking the Repository:**
 
-#### To Work With Your Local Clone:
-1. Install all the requirements:
-	- Go to the workspace of your local copy.
-	- create a virtual environment with `python3 -m venv venv`
-	- Activate your virtual environment with `source venv/bin/activate`
-	- Install requirements from requirements.txt file with `pip install -r requirements.txt`
+     By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
 
-2. Create your database in MongoDB.
-    1. Signup Or Login For [MongoDB](https://www.mongodb.com/)
-    2. Create a cluster as well as a database.
-    3. Create the following collections in the Database:
-        1. bird type
-        2. camera type
-        2. comment
-        3. bird
-        4. user
-3. Create a file in the root directory called ".flaskenv". This will contain all of your envornment variables. Your .flaskenv file should look similar to the following:
+     1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+     2. Locate the [GitHub Repository](https://github.com/DaithiShan/bird-friend "Link to GitHub Repo").
+     3. At the top of the repository, on the right side of the page, select "Fork".
+     4. You should now have a copy of the original repository in your GitHub account.
+
+-  **Creating a Clone**
+
+     How to run this project locally:
+     1. Install the [GitPod Browser](https://www.gitpod.io/docs/browser-extension/ "Link to Gitpod Browser extension download") Extension for Chrome.
+     2. After installation, restart the browser.
+     3. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+     2. Locate the [GitHub Repository](https://github.com/DaithiShan/bird-friend "Link to GitHub Repo").
+     5. Click the green "GitPod" button in the top right corner of the repository.
+     This will trigger a new gitPod workspace to be created from the code in github where you can work locally.
+
+     How to run this project within a local IDE, such as VSCode:
+
+     1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+     2. Locate the [GitHub Repository](https://github.com/DaithiShan/bird-friend "Link to GitHub Repo").
+     3. Under the repository name, click "Clone or download".
+     4. In the Clone with HTTPs section, copy the clone URL for the repository.
+     5. In your local IDE open the terminal.
+     6. Change the current working directory to the location where you want the cloned directory to be made.
+     7. Type 'git clone', and then paste the URL you copied in Step 3.
+     ```
+     git clone https://github.com/USERNAME/REPOSITORY
+     ```
+     8. Press Enter. Your local clone will be created.
+
+     (Further reading and troubleshooting on cloning a repository from GitHub [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "Link to GitHub troubleshooting"))
+
+Once a local clone is created, the environment variables have to be set:
+
+1. Create a `.gitignore` file in the project's root directory.
+2. In the terminal window, type `touch env.py` to create the file that will contain the environment variables. 
+3. Add `env.py` to the `.gitignore` file.
+4. Within the `env.py` file, enter the project's environment variables:
 ```
-FLASK_APP=run.py
-FLASK_DEBUG=[0 for off, 1 if you want to run flask debug mode locally]
-SECRET_KEY=[random string]
-MONGO_URI=mongodb+srv://[mongoDBusername]:[mongoDB password]@[clustername].wijab.mongodb.net/[database name]?retryWrites=true&w=majority
-MONGO_DBNAME=[mongoDB database name]
-CLOUD_NAME=[cloudinary username]
-CLOUD_API_KEY=[cloudinary API key]
-CLOUD_API_SECRET=[cloudinary API secret key]
-CLOUDINARY_URL=[cloudinary connection URL]
-MAIL_SERVER=[your mail smtp string, i.e. 'smtp.googlemail.com' if using gmail]
-MAIL_PORT=[587 if using TLS, 465 if using SSL]
-MAIL_USE_TLS=[1 if true, 0 if false (if false then set MAIL_USE_SSL=1 instead)]
-MAIL_USERNAME=[email username, i.e. #####@gmail.com]
-MAIL_PASSWORD=[login password for email]
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", <your_secret_key>)
+os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority" )
+os.environ.setdefault("MONGO_DBNAME", <your_mongo_db_name>)
 ```
-4. Make sure that .flaskenv is included in your .gitignore file. It should be included already in cloned file
-5. To read your environment variables from your .flaskenv file, you must ensure that you have installed Python-dotenv within your virtual environment: `pip install python-dotenv`. This should have alreayd happened when installing requirements earlier
+For the `MONGO_URI` ensure to replace `<username>`, `<password>`, `<cluster_name>` and `<database_name>` with the appropriate alternatives.
 
-### Deploying To Heroku
+### 3. Heroku App Creation
+The website requires back-end technology, including a server, application and database. It is because of this that the project was deployed on **Heroku**, a container-based cloud Platform as a Service. There are two ways to deploy on Heroku:
 
-To deploy our application on Heroku, we are required to have a requirements.txt file as well as a Procfile. These files will allow Heroku understand 
-what dependencies are required to run the application, as well as tell Heroku which file to run, to launch the application.
+- Using the Heroku Command Line Interface
+- Connect to GitHub Repository (the developer recommends this method)
 
-#### Create a procfile:
-- Within your root folder, type in the terminal `touch Procfile` to create the Procfile
-- In your IDE, insert the text `web: gunicorn run:app` in your Procfile and save
-	- gunicorn should have been installed via pip earlier 
+Before deployment can be carried out on Heroku, the following steps must be carried out:
 
-#### For Deployment:
-1. Open [Heroku](http://heroku.com/).
-2. Login or signup for Heroku.
-3. Once logged in create a new app and select the desired region. 
-4. Deployment method "GitHub" (if this section is accidentally missed, you can use the tab selection within your dashboard "DEPLOY")
-5. Select "connect to GitHub" and follow the on screen instructions. Once connected to your Github:
-   
-    - Search for your repository using the form provided.
-6. Once you have connected your GitHub repository:
-    - Navigate to the "Settings" tab:
-        - Scroll to the section "Config Vars" here you will have to tell Heroku what these variables are:
-            - Input all data found in .flaskenv file into the config var section
-    - Navigate back to the "Deploy" tab:
-        - Scroll to the "Manual Deploy" tab:
-            1. Select the branch you wish to deploy (master is default)
-            2. Click the "Deploy Branch" button. (This may take some time as Heroku uploads the app to their servers.) 
+1. Create a `requirements.txt` file to install all requirements. In the terminal window, type the following command:
+```
+pip3 install -r requirements.txt
+```
+2. Create a `Procfile` file so that Heroku knows which file runs the app. In the terminal window, type the following command:
+```
+echo web: python app.py > Procfile
+```
+*Remove the blank line that may occur at the end of the Procfile to avoid any issues*
 
-- Once the build is complete, a "View App" button will appear just below the build progress box. You can click this to see immediately if the build was successful. If the app doesn't load first time, try refresh once prior to investigating further.
+3. Push the two files to the repository:
+```
+git add requirements.txt
+git commit -m "Add requirements.txt"
 
-- Common issues include outdated requirements.txt and/or missing Procfile, if errors occur, check these are both correct before investigating further
+git add Procfile 
+git commit -m "Add Procfile"
+
+git push
+```
+Once these steps are completed, continue with the process:
+
+1. Log into [Heroku](https://id.heroku.com/login "Link to Heroku login page") or [create an account](https://signup.heroku.com/login "Link to Heroku sign-up page").
+2. Select the `New` button on the top-right of the page, and choose `Create New App`. Give your app a unique name and set the region (in this instance: **Europe**). Then click `Create App`.
+3. Navigate to the `Deploy` tab on the dashboard and select `Connect to GitHub`.
+4. Search for the repository name (ensuring it is spelled correctly). Once located, click `Connect`. 
+5. Navigate to the `Setting` tab on the dashboard and select `Reveal Config Vars`, entering the necessary key/values as below:
+
+| Key | Value |
+ --- | ---
+IP | 0.0.0.0
+PORT | 5000
+SECRET_KEY | `<your_secret_key>`
+MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority`
+MONGO_DBNAME | `<your_mongo_db_name>`
+
+6. Navigate back to the `Deploy` tab and scroll down to `Automatic Deploys`.
+7. Ensure that the `master` branch is selected, then select `Enable Automatic Deploys`.
+
+Heroku will receive the pushed code from the GitHub repository and host the application with the required packages set out. 
+
+The deployed version can now be viewed by selecting `View App` in the top-right of the page.
+
+[Back to top ⇧](#table-of-contents)
+
+***
 
 
 ## Credits
+
+### Mentor
+- I would like to thank my mentor Seun for always pushing me to deliver the best work I can to every project.
 
 ### Code
 - HUGE CREDIT TO CJCON90 FOR PROJECT IDEA AND DESIGN INSPIRED COMPLETELY BY IT
