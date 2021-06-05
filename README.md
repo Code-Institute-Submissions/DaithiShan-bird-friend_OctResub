@@ -271,7 +271,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
     
     - Roboto Slab is used on site links, and for site buttons. Its bolded, thick look is perfect for call-to-action elements like links and buttons, but its curves match it well with Lato and Jaldi.
 
-        ![Jaldi Typeface Example](static/images/readme-files/jaldi.png "Jaldi Typeface Example")
+        ![Roboto Slab Typeface Example](static/images/readme-files/roboto-slab.png "Roboto Slab Typeface Example")
 
 - <strong>Imagery</strong>
 
@@ -312,7 +312,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 ### Database Schema
 
-![database schema](#)
+![Database Schema](static/images/readme-files/db-schema.png "Database Schema")
 
 ### MongoDb
 
