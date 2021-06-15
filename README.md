@@ -109,10 +109,10 @@ The Developer is looking to:
 
 - Frequent users
 
-- I want to be able to see how many people have liked any of my photos.
-- I'd like to see what camera is responsible for the highest quality images.
-- I want uploads ranked in terms of popularity, as I grow more invested.
-- I want to be able to delete my account if ever I feel frustrated, or finished with it.
+    - I want to be able to see how many people have liked any of my photos.
+    - I'd like to see what camera is responsible for the highest quality images.
+    - I want uploads ranked in terms of popularity, as I grow more invested.
+    - I want to be able to delete my account if ever I feel frustrated, or finished with it.
 
 -  All Users
 
@@ -281,9 +281,11 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 ### Wireframes
 
-- [Mobile Wireframes](#)
-- [Tablet Wireframes](#)
-- [Desktop Wireframes](#)
+- [Mobile Wireframes](static/images/readme-files/wireframes/mobile-wireframes.pdf)
+- [Desktop Wireframes](static/images/readme-files/wireframes/desktop-wireframes.pdf)
+- Tablet design planned to follow same layout as mobile
+
+
 
 ## Database Models and Schema
 
@@ -692,15 +694,14 @@ The deployed version can now be viewed by selecting `View App` in the top-right 
 
 ***
 
-
 ## Credits
 
 ### Mentor
 - I would like to thank my mentor Seun for always pushing me to deliver the best work I can to every project.
 
 ### Code
-- HUGE CREDIT TO CJCON90 FOR PROJECT IDEA AND DESIGN INSPIRED COMPLETELY BY IT
-- HUGE CREDIT TO REBECCATRACEYT FOR README.MD DESIGN, INSPIRED COMPLETELY BY IT
+- A huge inspiration for this web application is fellow student Ciaran Concannon. His idea for [Hot Dogs](https://hot-dogz.herokuapp.com/register) was the inspiration behind Bird Friend.
+- Another fellow student whose work I drew on is Rebecca Tracey. Her README.MD for [Bake It 'til You Make It](https://bake-it-til-you-make-it.herokuapp.com) was so excellent, and I used it for a template for this one.
 - My navbar designed was inspired by [this post on TailwindComponents by sebageounity](https://tailwindcomponents.com/component/bottom-and-header-nav-responsive)
 - Form design was inspired by [this post on TailwindComponents by darkcris1](https://tailwindcomponents.com/component/facebook-login-page)
 - Most of my Flask code and knowledge was inspired by Miguel Grinberg's [Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
