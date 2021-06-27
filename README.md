@@ -314,7 +314,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 ### Database Schema
 
-![Database Schema](static/images/readme-files/db-schema.png "Database Schema")
+![Database Schema](static/images/readme-files/db-schema.jpg "Database Schema")
 
 ### MongoDb
 

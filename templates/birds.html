@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Friend</title>
+</head>
+<body>
+    {% for bird in birds %}
+        {{ bird.bird_type }}<br>
+        {{ bird.nickname }}<br>
+        {{ bird.img_url}}<br>
+        {{ bird.img_url_card }}<br>
+        {{ bird.about }}<br>
+        {{ bird.camera_type }}<br>
+        {{ bird.uploader }}<br>
+        {{ bird.upload_date }}<br>
+    {% endfor %}
+</body>
+</html>
