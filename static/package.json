@@ -1,0 +1,33 @@
+{
+  "name": "bird_friend",
+  "version": "1.0.0",
+  "description": "A bird photo sharing app built with Flask",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "postcss css/app.css -o css/output.css",
+    "watch:css": "postcss css/app.css -o css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaithiShan/bird_friend.git"
+  },
+  "keywords": [
+    "flask",
+    "python",
+    "tailwind",
+    "photo",
+    "sharing"
+  ],
+  "author": "David Burns",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaithiShan/bird_friend/issues"
+  },
+  "homepage": "https://github.com/DaithiShan/bird_friend#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.4"
+  }
+}
