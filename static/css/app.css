@@ -3,3 +3,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* BUTTONS */
+
+.btn-green {
+    @apply p-2 ml-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100;
+}
+
+.btn-red {
+    @apply p-2 ml-2 bg-rua-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-rua-100
+}
