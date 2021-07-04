@@ -1,21 +1,99 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Bird Friend is a photo sharing app, where you share photos of birds in your neighbourhood!">
+    <meta name="description"
+        content="Bird Friend is a photo sharing app, where you share photos of birds in your neighbourhood!">
     <meta name="keywords" content="Python, Flask, Tailwind, Photo, Sharing, Dogs">
     <meta name="author" content="David Burns">
     <meta property="og:title" content="Bird Friend">
-    <meta property="og:description" content="Bird Friend is a photo sharing app, where you share photos of birds in your neighbourhood!">
+    <meta property="og:description"
+        content="Bird Friend is a photo sharing app, where you share photos of birds in your neighbourhood!">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}" type="text/css">
-    
+
     {% block styles %}
     {% endblock %}
     <title>Bird Friend</title>
 </head>
-<body>
-    <h1 class="bg-gray-300">I'm part of the base template</h1>
+
+<body class="bg-ban-100">
+    <!-- Navbar inspired by Sebageounity: 
+        https://tailwindcomponents.com/component/bottom-and-header-nav-responsive -->
+
+    <div class="w-full h-screen">
+        <header>
+            <nav class="flex justify-between w-full p-4">
+                <a href="#"><span class="font-roboto-slab font-semibold text-xl tracking-tight">Title</span></a>
+                <div class="md:items-center md:w-auto flex">
+                    <div class="md:flex hidden">
+                        <a class="block md:text-black mr-4" href="#">Logout</a>
+                        <a class="block md:text-black mr-4" href="#">Contact</a>
+                        <a class="block md:text-black mr-4" href="#">Upload</a>
+                        <a class="block md:text-black mr-4" href="#">My Profile</a>
+                    </div>
+                    <div class="flex text-sm" v-else>
+                        <a class="p-2 ml-2 bg-glas-100 text-white font-roboto-slab font-semibold leading-none border border-white-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100"
+                            href="#">Login</a>
+                        <a class="p-2 ml-2 bg-rua-100 text-black font-roboto-slab font-semibold leading-none border border-black-100 rounded hover:border-transparent hover:bg-white hover:text-rua-100"
+                            href="#">Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="flex justify-center items-center">
+            <h1 class="text-3xl text-center">Welcome</h1>
+        </main>
+        <div class="bottomNav fixed bottom-0 w-full">
+            <nav style="border:1px solid blue" class="md:hidden bottom-0 w-full bg-liath-100 text-xs">
+                <ul class="flex justify-around items-center text-white text-center opacity-75 text-lg font-bold">
+                    <li class="p-4 hover:bg-gray-500">
+                        <a href="/link">
+                            <span>Logout</span>
+                            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+                                <path
+                                    d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z"
+                                    fill-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-500">
+                        <a href="/link">
+                            <span>Contact</span>
+                            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+                                <path
+                                    d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z"
+                                    fill-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-500">
+                        <a href="/link">
+                            <span>Upload</span>
+                            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+                                <path
+                                    d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z"
+                                    fill-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="p-4 hover:bg-gray-500">
+                        <a href="/link">
+                            <span>My Profile</span>
+                            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+                                <path
+                                    d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z"
+                                    fill-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- /navbar -->
+
     {% block content %}
     {% endblock %}
 
@@ -23,4 +101,5 @@
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>
