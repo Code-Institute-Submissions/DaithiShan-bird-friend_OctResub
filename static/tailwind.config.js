@@ -27,14 +27,32 @@ module.exports = {
         },
       },
       fontFamily: {
-        welcome: ['Jaldi'],
-        title: ['Roboto Slab'],
+        title: ['Jaldi'],
+        heading: ['Roboto Slab'],
         body: ['Lato']
-      }
+      },
+      minHeight: {
+        "screen/2": "50vh",
+        "screen-less-nav": "calc(calc(var(--vh, 1vh) * 100) - 4rem)",
+        "screen-less-both-nav": "calc(calc(var(--vh, 1vh) * 100) - 8rem)"
+      },
+      maxHeight: {
+        "screen/2": "50vh",
+        "screen-less-nav": "calc(calc(var(--vh, 1vh) * 100) - 4rem)"
+      },
+      width: {
+        "screen/2": "calc(100vw / 2)",
+      },
+      screens: {
+        'landscape': {'raw': '(orientation: landscape)'},
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      fontStyle: ['hover', 'focus'],
+      opacity: ['disabled']
+    },
   },
   plugins: [],
 }

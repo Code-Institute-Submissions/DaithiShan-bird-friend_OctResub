@@ -205,7 +205,8 @@ Correct the inability to style clickable types in iOS and Safari.
 */
 
 button,
-[type='button'] {
+[type='button'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -415,8 +416,7 @@ textarea::placeholder {
   color: #9ca3af;
 }
 
-button,
-[role="button"] {
+button {
   cursor: pointer;
 }
 
@@ -523,6 +523,44 @@ video {
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
 
+.container{
+  width: 100%;
+}
+
+@media (min-width: 640px){
+  .container{
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px){
+  .container{
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px){
+  .container{
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px){
+  .container{
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px){
+  .container{
+    max-width: 1536px;
+  }
+}
+
+.visible{
+  visibility: visible;
+}
+
 .static{
   position: static;
 }
@@ -535,41 +573,17 @@ video {
   bottom: 0px;
 }
 
-.m-4{
-  margin: 1rem;
-}
-
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
-}
-
-.mt-10{
-  margin-top: 2.5rem;
-}
-
-.mr-2{
-  margin-right: 0.5rem;
-}
-
-.mr-3{
-  margin-right: 0.75rem;
 }
 
 .mr-4{
   margin-right: 1rem;
 }
 
-.mb-2{
-  margin-bottom: 0.5rem;
-}
-
 .block{
   display: block;
-}
-
-.inline-block{
-  display: inline-block;
 }
 
 .flex{
@@ -588,40 +602,16 @@ video {
   height: 1.5rem;
 }
 
-.h-8{
-  height: 2rem;
-}
-
-.h-64{
-  height: 16rem;
-}
-
-.h-full{
-  height: 100%;
-}
-
-.h-screen{
-  height: 100vh;
-}
-
 .w-6{
   width: 1.5rem;
 }
 
-.w-8{
-  width: 2rem;
+.w-80{
+  width: 20rem;
 }
 
 .w-full{
   width: 100%;
-}
-
-.max-w-sm{
-  max-width: 24rem;
-}
-
-.flex-auto{
-  flex: 1 1 auto;
 }
 
 @-webkit-keyframes spin{
@@ -690,12 +680,12 @@ video {
   }
 }
 
-.items-center{
-  align-items: center;
+.flex-col{
+  flex-direction: column;
 }
 
-.justify-center{
-  justify-content: center;
+.items-center{
+  align-items: center;
 }
 
 .justify-between{
@@ -706,51 +696,17 @@ video {
   justify-content: space-around;
 }
 
-.overflow-hidden{
-  overflow: hidden;
+.rounded-lg{
+  border-radius: 0.5rem;
 }
 
-.rounded{
-  border-radius: 0.25rem;
+.border{
+  border-width: 1px;
 }
 
-.rounded-full{
-  border-radius: 9999px;
-}
-
-.bg-white{
-  --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
-
-.bg-gray-200{
-  --tw-bg-opacity: 1;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
-}
-
-.bg-green-300{
-  --tw-bg-opacity: 1;
-  background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
-}
-
-.bg-green-600{
-  --tw-bg-opacity: 1;
-  background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
-}
-
-.bg-blue-500{
-  --tw-bg-opacity: 1;
-  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
-}
-
-.bg-blue-800{
-  --tw-bg-opacity: 1;
-  background-color: rgba(30, 64, 175, var(--tw-bg-opacity));
-}
-
-.bg-blue-900{
-  --tw-bg-opacity: 1;
-  background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
+.border-gray-100{
+  --tw-border-opacity: 1;
+  border-color: rgba(243, 244, 246, var(--tw-border-opacity));
 }
 
 .bg-ban-100{
@@ -768,36 +724,12 @@ video {
   background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 
-.p-2{
-  padding: 0.5rem;
-}
-
 .p-4{
   padding: 1rem;
 }
 
-.px-2{
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.px-6{
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.py-1{
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.text-left{
-  text-align: left;
+.pb-2{
+  padding-bottom: 0.5rem;
 }
 
 .text-center{
@@ -814,11 +746,6 @@ video {
   line-height: 1.25rem;
 }
 
-.text-base{
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -829,30 +756,12 @@ video {
   line-height: 1.75rem;
 }
 
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .font-semibold{
   font-weight: 600;
 }
 
 .font-bold{
   font-weight: 700;
-}
-
-.uppercase{
-  text-transform: uppercase;
-}
-
-.leading-none{
-  line-height: 1;
 }
 
 .tracking-tight{
@@ -864,14 +773,9 @@ video {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
-.text-green-900{
+.text-gorm-100{
   --tw-text-opacity: 1;
-  color: rgba(6, 78, 59, var(--tw-text-opacity));
-}
-
-.text-blue-100{
-  --tw-text-opacity: 1;
-  color: rgba(219, 234, 254, var(--tw-text-opacity));
+  color: rgba(26, 83, 92, var(--tw-text-opacity));
 }
 
 .opacity-75{
@@ -882,8 +786,8 @@ video {
   --tw-shadow: 0 0 #0000;
 }
 
-.shadow-lg{
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+.shadow-md{
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -895,6 +799,8 @@ video {
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
 }
+
+/* Buttons */
 
 .btn-green {
   margin-left: 0.5rem;
@@ -966,6 +872,52 @@ video {
   color: rgba(255, 107, 107, var(--tw-text-opacity));
 }
 
+/* FORMS */
+
+.form-input {
+  margin-bottom: 0.75rem;
+  width: 100%;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.form-input:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+/* TYPOGRAPHY */
+
+.title {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  font-family: Jaldi;
+  font-size: 3.75rem;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+
+@media (min-width: 1024px){
+  .title{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
 @media (min-width: 640px){
 }
 
@@ -998,22 +950,13 @@ video {
 }
 
 @media (min-width: 1024px){
-  .lg\:inline-flex{
-    display: inline-flex;
-  }
-
-  .lg\:rounded-full{
-    border-radius: 9999px;
-  }
-
-  .lg\:px-4{
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
 }
 
 @media (min-width: 1280px){
 }
 
 @media (min-width: 1536px){
+}
+
+@media (orientation: landscape){
 }
