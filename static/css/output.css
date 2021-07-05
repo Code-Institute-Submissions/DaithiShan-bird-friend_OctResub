@@ -588,6 +588,10 @@ video {
   height: 1.5rem;
 }
 
+.h-8{
+  height: 2rem;
+}
+
 .h-64{
   height: 16rem;
 }
@@ -602,6 +606,10 @@ video {
 
 .w-6{
   width: 1.5rem;
+}
+
+.w-8{
+  width: 2rem;
 }
 
 .w-full{
@@ -760,10 +768,6 @@ video {
   background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 
-.fill-current{
-  fill: currentColor;
-}
-
 .p-2{
   padding: 0.5rem;
 }
@@ -892,8 +896,6 @@ video {
   --tw-ring-shadow: 0 0 #0000;
 }
 
-/* BUTTONS */
-
 .btn-green {
   margin-left: 0.5rem;
   border-radius: 0.25rem;
@@ -982,6 +984,11 @@ video {
 
   .md\:items-center{
     align-items: center;
+  }
+
+  .md\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .md\:text-black{
