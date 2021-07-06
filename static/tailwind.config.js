@@ -25,6 +25,9 @@ module.exports = {
         liath: {
           '100': '#504A5C'
         },
+        gruama: {
+          '100': '#E9E9EB'
+        }
       },
       fontFamily: {
         title: ['Jaldi'],

@@ -6,44 +6,44 @@
 
 <h1 class="title text-gorm-100">Register</h1>
 <div class="container flex flex-col items-center mx-auto">
-    <form action="/register" method="POST" class="flex flex-col p-4 border border-gray-100 rounded-lg shadow-md w-80"
+    <form action="/register" method="POST" class="form-container"
         novalidate>
         <input id="csrf_token" name="csrf_token" type="hidden"
             value="IjQ4NTA1OWQ0YzI4YmFmZjlkMjc3YmRhMjJmN2UxZmJlYmQ4YjRiMzEi.YONyQQ.tTIFZNqXnUB5bbGKsmfkeliPe4Q">
         <fieldset class="pb-2 ">
             <label for="username">Username</label>
-            <input class="mb-3 w-full py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 "
+            <input class="form-input"
                 id="username" name="username" required type="text" value="">
 
         </fieldset>
         <fieldset class="pb-2 ">
             <label for="email">Email</label>
-            <input class="mb-3 w-full py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 "
+            <input class="form-input"
                 id="email" name="email" required type="text" value="">
 
         </fieldset>
         <fieldset class="pb-2 ">
             <label for="password">Password</label>
-            <input class="mb-3 w-full py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 "
+            <input class="form-input"
                 id="password" name="password" required type="password" value="">
 
         </fieldset>
         <fieldset class="pb-2 ">
             <label for="password2">Repeat Password</label>
-            <input class="mb-3 w-full py-3 px-4 border border-gray-400 focus:outline-none rounded-md focus:ring-1 "
+            <input class="form-input"
                 id="password2" name="password2" required type="password" value="">
 
         </fieldset>
         <fieldset class="pb-2 ">
-            <input class="w-full btn btn-secondary" id="submit" name="submit" type="submit" value="Register">
+            <input class="btn-form" id="submit" name="submit" type="submit" value="Submit">
         </fieldset>
     </form>
-    <div class="flex flex-col items-center gap-4 mt-10 text-xl font-bold text-center">
-        <p class="text-gray-500 ">Already a member?</p>
-        <a href="/login" class="w-40 btn btn-primary">Log In</a>
+    <div class="flex flex-col items-center gap-4 mt-7 mb-4 text-xl font-bold text-center">
+        <p class="text-liath-100 ">Already a member?</p>
+        <a href="/login" class="w-40 btn-red-large">Log In</a>
         <div>
-            <p class="text-gray-500 ">Need something else?</p>
-            <a href="/contact" class="text-primary-500 hover:underline hover:text-primary-600 ">Contact us</a>
+            <p class="text-liath-100 ">Need something else?</p>
+            <a href="/contact" class="text-rua-100 hover:underline">Contact us</a>
         </div>
     </div>
 </div>
