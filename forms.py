@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, \
     Length
-from models import User
 
 #Customised registration form class from student project - https://github.com/cjcon90/hot-dogz
 

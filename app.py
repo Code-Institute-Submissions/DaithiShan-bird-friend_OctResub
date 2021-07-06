@@ -29,9 +29,9 @@ def get_birds():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     # Customised register function from Code Institute Walkthrough Project
-    if current_user.is_authenticated:
-        # redirect users to main page if they are already registered
-        return redirect(url_for('get_birds'))
+    # if current_user.is_authenticated:
+    #     # redirect users to main page if they are already registered
+    #     return redirect(url_for('get_birds'))
     form = RegisterForm()
     if request.method == "POST" and form.validate_on_submit():
         # check if username already exists in db
