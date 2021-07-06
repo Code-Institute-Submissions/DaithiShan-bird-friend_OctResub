@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from forms import RegisterForm
 if os.path.exists("env.py"):
     import env
 
@@ -31,6 +32,7 @@ def register():
     if current_user.is_authenticated:
         # redirect users to main page if they are already registered
         return redirect(url_for('get_birds'))
+    form = RegisterForm()
     if request.method == "POST" and form.validate_on_submit():
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
