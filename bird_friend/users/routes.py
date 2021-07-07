@@ -23,29 +23,19 @@ def get_birds():
 
 @users.route("/register", methods=["GET", "POST"])
 def register():
+    form = RegisterForm()
     # Customised register function from Code Institute Walkthrough Project
-    if request.method == "POST":
-        # check if username already exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
-
-        if existing_user:
-            flash("Username already exists")
-            return redirect(url_for("register"))
-
-        register = {
-            "username": request.form.get("username").lower(),
-            "email": request.form.get("email").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-
-        mongo.db.users.insert_one(register)
+    if request.method == "POST" and form.validate_on_submit():
+        user = User(username=form.username.data.lower(), email=form.email.data)
+        user.set_password(form.password.data)
+        user.save()
+        login_user(user)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
 
-    return render_template("register.html")
+    return render_template("user/register.html", title="Register", form=form)
 
 
 if __name__ == "__main__":
