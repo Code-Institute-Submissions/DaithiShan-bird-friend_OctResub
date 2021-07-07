@@ -32,8 +32,7 @@ def register():
     # if current_user.is_authenticated:
     #     # redirect users to main page if they are already registered
     #     return redirect(url_for('get_birds'))
-    form = RegisterForm()
-    if request.method == "POST" and form.validate_on_submit():
+    if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -44,8 +43,10 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
+            "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
+
         mongo.db.users.insert_one(register)
 
         # put the new user into 'session' cookie
