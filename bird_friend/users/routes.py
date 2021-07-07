@@ -1,37 +1,29 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
-from flask_pymongo import PyMongo
+    redirect, request, url_for, Blueprint)
+from mongoengine.errors import DoesNotExist
+from bird_friend.users.forms import RegisterForm
+from bird_friend.models import User
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import RegisterForm
 if os.path.exists("env.py"):
     import env
 
-
-app = Flask(__name__)
-
-app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.secret_key = os.environ.get("SECRET_KEY")
-
-mongo = PyMongo(app)
+users = Blueprint('users', __name__)
 
 
-@app.route("/")
-@app.route("/get_birds")
+@users.route("/")
+@users.route("/get_birds")
 def get_birds():
     birds = mongo.db.birds.find()
     return render_template("birds.html", birds=birds)
 
 
-@app.route("/register", methods=["GET", "POST"])
+@users.route("/register", methods=["GET", "POST"])
 def register():
     # Customised register function from Code Institute Walkthrough Project
-    # if current_user.is_authenticated:
-    #     # redirect users to main page if they are already registered
-    #     return redirect(url_for('get_birds'))
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
