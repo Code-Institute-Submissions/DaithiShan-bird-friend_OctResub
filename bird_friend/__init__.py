@@ -11,14 +11,13 @@ db = MongoEngine()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
-
-    # add config settings to flask app (from config.py)
     app.config.from_object(Config)
 
     db.init_app(app)
 
     from bird_friend.users.routes import users
-
-    app.register__blueprint(users)
+    from bird_friend.main.routes import main
+    app.register_blueprint(users)
+    app.register_blueprint(main)
 
     return app

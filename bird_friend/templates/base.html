@@ -12,10 +12,11 @@
     <meta property="og:description"
         content="Bird Friend is a photo sharing app, where you share photos of birds in your neighbourhood!">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}" type="text/css">
-
-    {% block styles %}
-    {% endblock %}
+    {% if title %}
+    <title>{{ title }} - Bird Friend</title>
+    {% else %}
     <title>Bird Friend</title>
+    {% endif %}
 </head>
 
 <body class="bg-ban-100 font-body">
@@ -67,7 +68,7 @@
                     </div>
                     <div class="flex text-sm" v-else>
                         <a class="btn-green" href="#">Login</a>
-                        <a class="btn-red" href="{{ url_for('register') }}">Register</a>
+                        <a class="btn-red" href="{{ url_for('users.register') }}">Register</a>
                     </div>
                 </div>
             </nav>
