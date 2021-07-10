@@ -4,6 +4,14 @@
 @tailwind components; 
 @tailwind utilities;
 
+/* POSITIONING */
+
+.x-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* Buttons */
 
 .btn-green {
@@ -41,4 +49,42 @@
 
 .title {
     @apply py-4 text-6xl tracking-wide text-center font-title lg:text-7xl lg:py-6;
+}
+
+/* FLASH COLORS & ICON NAMES */
+.comment {
+    @apply bg-blue-500;
+}
+.bird {
+    @apply bg-green-500;
+}
+.thumbs-up {
+    @apply bg-blue-500;
+}
+.like {
+    @apply bg-gorm-100;
+}
+.check-circle {
+    @apply bg-green-500;
+}
+.exclamation {
+    @apply bg-rua-100;
+}
+
+/* FLASH ANIMATIONS */
+
+.animate-flash {
+    animation: animate-flash 3s ease-out forwards;
+}
+
+@keyframes animate-flash {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

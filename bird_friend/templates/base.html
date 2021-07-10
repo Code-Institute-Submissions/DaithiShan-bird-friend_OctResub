@@ -11,6 +11,7 @@
     <meta property="og:title" content="Bird Friend">
     <meta property="og:description"
         content="Bird Friend is a photo sharing app, where you share photos of birds in your neighbourhood!">
+    <script src="https://kit.fontawesome.com/ea8e9f1dd8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}" type="text/css">
     {% if title %}
     <title>{{ title }} - Bird Friend</title>
@@ -21,7 +22,7 @@
 
 <body class="bg-ban-100 font-body">
 
-    <!-- Navbar inspired by Sebageounity: 
+    <!-- NAVBAR inspired by Sebageounity: 
         https://tailwindcomponents.com/component/bottom-and-header-nav-responsive -->
 
     <div class="w-full">
@@ -75,13 +76,36 @@
         </header>
         <!-- /navbar -->
 
-        <main class="mx-auto">
+        <!-- MAIN CONTENT -->
+        <main class="{{'min-h-screen-less-both-nav' if title and current_user.is_authenticated else 'min-h-screen-less-nav'}} md:min-h-screen-less-nav md:mb-0 mx-auto">
+             <!--
+      Conditional height settings for mobile viewports:
+      Set height minus both navs if on mobile and not on index.html 
+      No bottom nav on landing page
+      Else set height minus top nav only.
+      Then set height minus top only for *all* views tablet and above-->
+        <!-- FLASH MESSAGES -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="absolute w-full max-w-screen-sm x-center">
+            {% for category, message in messages %}
+              <div class="w-11/12 p-2 m-2 mx-auto text-center text-white {{category}} rounded-lg shadow-xl animate-flash ">
+                <!-- Category decides color of flash and icon used -->
+                <p><i class="fas fa-{{category}} mr-4"></i>{{message}}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
             {% block content %}
             {% endblock %}
+            
         </main>
         
         <!-- MOBILE NAVIGATION BAR -->
         <!-- Only visible on mobile and if user is signed in -->
+        {% if current_user.is_authenticated %}
         <div class="bottomNav fixed bottom-0 w-full">
             <nav style="border:1px solid blue" class="md:hidden bottom-0 w-full bg-liath-100 text-xs">
                 <ul class="flex justify-around items-center text-white text-center opacity-75 text-lg font-bold">
@@ -129,6 +153,7 @@
             </nav>
         </div>
     </div>
+    {% endif %}
     <!-- /mobile navbar -->
 
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
