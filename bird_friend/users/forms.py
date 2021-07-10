@@ -5,8 +5,18 @@ from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, \
 from bird_friend.models import User
 from flask_login import current_user
 
-#Registration form class from student project - 
+#App forms from student project - 
 #https://github.com/cjcon90/hot-dogz/blob/main/hot_dogz/users/forms.py
+
+class LoginForm(FlaskForm):
+    username = StringField('Username',
+                           validators=[DataRequired(
+                               message="Please enter a username")])
+    password = PasswordField('Password',
+                             validators=[DataRequired(
+                                 message="Please enter a password")])
+    submit = SubmitField('Sign In')
+
 
 class RegisterForm(FlaskForm):
     username = StringField('Username',
