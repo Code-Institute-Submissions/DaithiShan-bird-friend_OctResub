@@ -67,7 +67,7 @@
                         <a class="block md:text-black mr-4" href="#">My Profile</a>
                     </div>
                     <div class="flex text-sm" v-else>
-                        <a class="btn-green" href="#">Login</a>
+                        <a class="btn-green" href="{{ url_for('users.login') }}">Login</a>
                         <a class="btn-red" href="{{ url_for('users.register') }}">Register</a>
                     </div>
                 </div>

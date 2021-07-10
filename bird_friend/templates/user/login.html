@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- LOGIN FORM PAGE -->
+    <div class="container flex flex-col items-center mx-auto mt-10">
+        <h1 class="title text-gorm-100">Log in</h1>
+        <form action="{{url_for('users.login')}}" method="POST" class="form-container" novalidate>
+                {{ form.hidden_tag()}}
+                <fieldset class="pb-2">
+                    {{form.username.label}}
+                    {{form.username(class_='form-input')}}
+                    {% for error in form.username.errors %}
+                        <span class="text-red-500"> {{error}} </span>
+                    {% endfor %}
+                </fieldset>
+                <fieldset class="pb-2">
+                    {{form.password.label}}
+                    {{ form.password(class_='form-input' )}}
+                    {% for error in form.password.errors %}
+                        <span class="text-red-500 "> {{error}} </span>
+                    {% endfor %}
+                </fieldset>
+                <fieldset class="pb-2">
+                    {{form.submit(class_='btn-form')}}
+                </fieldset>
+        </form>
+        <div class="flex flex-col items-center gap-4 mt-7 mb-4 text-xl font-bold text-center">
+            <p class="text-liath-100">Not registered yet?</p>
+            <a href="{{url_for('users.register')}}" class="w-40 btn-red-large">Log In</a>
+            <div>
+                <p class="text-liath-100 ">Need something else?</p>
+                <a href="/contact" class="text-rua-100 hover:underline">Contact us</a>
+            </div>
+        </div>
+
+{% endblock %}
