@@ -1,7 +1,10 @@
 from bird_friend import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from mongoengine import CASCADE
 from flask_login import UserMixin
 from flask import current_app
+from bird_friend import login
+from cloudinary import uploader
 import os
 
 
@@ -19,3 +22,8 @@ class User(UserMixin, db.Document):
     
     def __repr__(self):
         return f"User('{self.username}','{self.email}')"
+
+
+@login.user_loader
+def load_user(id):
+    return User.objects.get(pk=id)
