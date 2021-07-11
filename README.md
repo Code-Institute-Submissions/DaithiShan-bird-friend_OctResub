@@ -20,6 +20,8 @@
 
 **[View the live project here](#)**
 
+<span id="top"></span>
+
 ## Table of Contents
 
   * [User experience](#user-experience)
@@ -42,12 +44,13 @@
       - [Register / Login](#register---login)
       - [Password Change Request](#password-change-request)
       - [Profile](#profile)
-    + [Dog Pages](#dog-pages)
-      - [Dog Profile Page](#dog-profile-page)
+    + [Bird Pages](#bird-pages)
+      - [Bird Profile Page](#bird-profile-page)
       - [Comments](#comments)
     + [Admin](#admin)
     + [Custom Error Pages](#custom-error-pages)
     + [Features left to Implement.](#features-left-to-implement)
+  * [Issues and Bugs](#Issues-and-Bugs)
   * [Technologies used.](#technologies-used)
     + [Flask](#flask)
       - [Flask extensions used](#flask-extensions-used)
@@ -126,6 +129,8 @@ The Developer is looking to:
   - I want the site to pay for itself through 3rd party camera sales, to be sustainable.
   - I want the ability as admin to delete/edit any content that is inappropriate.
 
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
+
 ### Development Planes
 
 In order to design and create a photo sharing app that would answer these user stories, the project was iterated through the **Five Development Planes**:
@@ -188,6 +193,8 @@ With these goals in mind, a strategy table was created to determine the trade-of
 **Strategy Table for Bird Friend:**
 ![Strategy Table for Bird Friend Web App](static/images/readme-files/strategy-table.png "Strategy Table for Bird Friend Web App")
 
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
+
 <strong>2. <u>Scope</u></strong>
 
 A scope was defined in order to clearly identify what needed to be done in order to align features with the strategy previously defined. This was broken into two categories:
@@ -229,6 +236,8 @@ A scope was defined in order to clearly identify what needed to be done in order
             - Comment on other users photos
         - Get in contact with the Developer
 
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
+
 <strong>3. <u>Structure</u></strong>
 
 The information architecture was organized in order to ensure that users could navigate through the site with ease and efficiency, with the following results: 
@@ -244,6 +253,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
      ![](static/images/readme-files/.png "")
 
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
 ## Design
 
@@ -285,7 +295,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 - [Desktop Wireframes](static/images/readme-files/wireframes/desktop-wireframes.pdf)
 - Tablet design planned to follow same layout as mobile
 
-
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
 ## Database Models and Schema
 
@@ -332,6 +342,8 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 	- copied the connection string for use in my application
 	- set password / cluster name / collection name as enviuronmental variables to connect to my DB within flask
 	- used Flask-MongoEngine to interact with my DB within the app
+
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
 ## Features
 
@@ -444,6 +456,104 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 ### Features left to Implement.
 
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
+
+## Issues and Bugs 
+The developer encountered a number of issues during the development of the website, especially while using the Tailwind CSS framework, and the Blueprint layout for Flask apps.
+
+**Configuring The Tailwind JS File** <br>
+Tailwind CSS allows developers to build web apps with a truly custom look, by using utilities instead of ready-made components. However, to take full advantage of the customization it offers, developers have to build their own tailwind.config.js file.
+
+When the developer first used this file to add their own color scheme and typography on top of Tailwind's default colors and typography, the colors and typography were displaying, but a huge amount of default styles were being lost.
+
+This was due to where the custom styles were being added, which was causing an overwrite.
+
+Code causing overwrite:
+
+```
+module.exports = {
+  theme: {
+    colors: {
+        gorm: {
+          '100': '#1A535C'
+        },
+        glas: {
+          '100': '#4ECDC4'
+        },
+        ban: {
+          '100': '#F7FFF7'
+        },
+        rua: {
+          '100': '#FF6B6B'
+        },
+        bui: {
+          '100': '#FFE66D'
+        },
+        liath: {
+          '100': '#504A5C'
+        },
+        gruama: {
+          '100': '#E9E9EB'
+        }
+      },
+    },
+  },
+}
+```
+
+Fix to prevent default styles overwrite using extend dictionary:
+
+```
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        gorm: {
+          '100': '#1A535C'
+        },
+        glas: {
+          '100': '#4ECDC4'
+        },
+        ban: {
+          '100': '#F7FFF7'
+        },
+        rua: {
+          '100': '#FF6B6B'
+        },
+        bui: {
+          '100': '#FFE66D'
+        },
+        liath: {
+          '100': '#504A5C'
+        },
+        gruama: {
+          '100': '#E9E9EB'
+        }
+      },
+    },
+  },
+}
+```
+
+**Flask Blueprint** <br>
+This application was built on the Flask framework, using Flask Blueprints to split the application into the following modules:
+	- main
+	- users
+	- dogs
+	- errors
+
+- The purpose of this design is to make it easier to find routes and elements if they need to be updated or changed.
+
+- However, it also makes the initial set up more complex, especially in terms of using the correct imports on the various routes, and setting the right ```url_for()``` tags.
+
+- It is important that other developers are aware a frequent number of small bugs may result from the following structure without attention to detail:
+
+  - App configuration settings are contained within ``` config.py ```
+  - Inside the  ```__init__.py ``` file, the app is created as a [Flask application factory](https://flask.palletsprojects.com/en/1.1.x/patterns/appfactories/).
+  - Then in the ``` app.py ``` file, the application factory is imported and the function is the invoked ie. ``` app = create_app() ``` which creates the application.
+
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
+
 ## Technologies used.
 
 ### Flask
@@ -554,11 +664,22 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 - [VSCode](https://code.visualstudio.com) - My primary code editor of choice for the project
 - [PyCharm](https://www.jetbrains.com/pycharm/) - Secondary code editor, used particularly for additional PEP 8 compliance functionality
 
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
+
 ## Testing
 
 **[Please see TESTING.md](TESTING.md)**
 
+## Deployment
+
+### Requirements To Deploy:
+- Python3
+- Github account
+- MongoDB account
+- Heroku account
+
 To further develop this project, a clone can be made using the following steps:
+
 ### 1. Database Creation
 The application is connected to a [MongoDB Atlas](https://mongodb.com/ "Link to MongoDB Homeapage") Cluster. A Project database can be created using the following steps:
 
@@ -690,7 +811,7 @@ Heroku will receive the pushed code from the GitHub repository and host the appl
 
 The deployed version can now be viewed by selecting `View App` in the top-right of the page.
 
-[Back to top ⇧](#table-of-contents)
+<div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
 ***
 
