@@ -5,7 +5,7 @@
 <div class="relative bg-bottom bg-no-repeat min-h-screen-less-both-nav md:min-h-screen-less-nav bg-dog8 lg:bg-50%">
     <h1 class="title text-gorm-100 ">{{title}}</h1>
         <!-- {% if title == 'Upload Bird' %} -->
-        <form action="{{url_for('birds.upload_bird')}}" method="POST" enctype="multipart/form-data" class="z-10 flex flex-col p-4 mx-auto bg-white border border-gray-100 rounded-lg shadow-md fade-in w-80 lg:w-1/2 " novalidate>
+        <form action="{{url_for('birds.upload_bird')}}" method="POST" enctype="multipart/form-data" class="z-10 form-container lg:w-1/2 " novalidate>
         <!-- {% else %}
         <form action="{{url_for('birds.edit_bird', bird_id=bird.pk)}}" method="POST" enctype="multipart/form-data" class="z-10 flex flex-col p-4 mx-auto bg-white border border-gray-100 rounded-lg shadow-md fade-in w-80 lg:w-1/2 " novalidate>
         {% endif %} -->
@@ -13,10 +13,10 @@
             <div class="gap-6 lg:grid lg:grid-cols-2">
                 <div>
                     <fieldset class="pb-2 ">
-                        {{form.name.label}}
-                        {{form.name(class_='form-input')}}
-                        {% for error in form.name.errors %}
-                            <span class="text-rua-100 "> {{error}} </span>
+                        {{form.bird_type.label}}
+                        {{form.bird_type(class_='form-input')}}
+                        {% for error in form.bird_type.errors %}
+                            <span class="text-red-100 "> {{error}} </span>
                         {% endfor %}
                     </fieldset>
                     <fieldset class="pb-2 ">
@@ -27,10 +27,10 @@
                         {% endfor %}
                     </fieldset>
                     <fieldset class="pb-2 ">
-                        {{form.breed.label}}
-                        {{form.breed(class_='form-input')}}
-                        {% for error in form.breed.errors %}
-                            <span class="text-red-100 "> {{error}} </span>
+                        {{form.nickname.label}}
+                        {{form.nickname(class_='form-input')}}
+                        {% for error in form.nickname.errors %}
+                            <span class="text-rua-100 "> {{error}} </span>
                         {% endfor %}
                     </fieldset>
                 </div>

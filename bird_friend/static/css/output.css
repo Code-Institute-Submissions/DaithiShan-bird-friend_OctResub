@@ -573,6 +573,10 @@ video {
   position: absolute;
 }
 
+.relative{
+  position: relative;
+}
+
 .bottom-0{
   bottom: 0px;
 }
@@ -634,6 +638,10 @@ video {
   height: 1.5rem;
 }
 
+.h-32{
+  height: 8rem;
+}
+
 .min-h-screen-less-nav{
   min-height: calc(calc(var(--vh, 1vh) * 100) - 4rem);
 }
@@ -648,6 +656,10 @@ video {
 
 .w-40{
   width: 10rem;
+}
+
+.w-80{
+  width: 20rem;
 }
 
 .w-auto{
@@ -768,12 +780,30 @@ video {
   gap: 1rem;
 }
 
+.gap-6{
+  gap: 1.5rem;
+}
+
 .overflow-hidden{
   overflow: hidden;
 }
 
 .rounded-lg{
   border-radius: 0.5rem;
+}
+
+.border{
+  border-width: 1px;
+}
+
+.border-gray-100{
+  --tw-border-opacity: 1;
+  border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+}
+
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
 .bg-ban-100{
@@ -789,6 +819,14 @@ video {
 .hover\:bg-gray-500:hover{
   --tw-bg-opacity: 1;
   background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
+}
+
+.bg-bottom{
+  background-position: bottom;
+}
+
+.bg-no-repeat{
+  background-repeat: no-repeat;
 }
 
 .object-cover{
@@ -867,6 +905,11 @@ video {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
+.text-red-100{
+  --tw-text-opacity: 1;
+  color: rgba(254, 226, 226, var(--tw-text-opacity));
+}
+
 .text-red-500{
   --tw-text-opacity: 1;
   color: rgba(239, 68, 68, var(--tw-text-opacity));
@@ -897,6 +940,11 @@ video {
 
 *, ::before, ::after{
   --tw-shadow: 0 0 #0000;
+}
+
+.shadow-md{
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-xl{
@@ -1128,6 +1176,8 @@ video {
 /* FORMS */
 
 .form-container {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   width: 20rem;
   flex-direction: column;
@@ -1308,6 +1358,26 @@ video {
 }
 
 @media (min-width: 1024px){
+  .lg\:mb-5{
+    margin-bottom: 1.25rem;
+  }
+
+  .lg\:grid{
+    display: grid;
+  }
+
+  .lg\:h-40{
+    height: 10rem;
+  }
+
+  .lg\:w-1\/2{
+    width: 50%;
+  }
+
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:text-2xl{
     font-size: 1.5rem;
     line-height: 2rem;

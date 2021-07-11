@@ -6,6 +6,9 @@ from bird_friend.models import Bird, BirdType
 
 birds = Blueprint('birds', __name__)
 
+# App routes inspired by student project - 
+#https://github.com/cjcon90/hot-dogz/blob/main/hot_dogz/users/forms.py 
+
 
 @birds.route('/upload_bird', methods=['GET', 'POST'])
 @login_required

@@ -37,7 +37,7 @@
 /* FORMS */
 
 .form-container {
-    @apply flex flex-col p-4 border border-black bg-gradient-to-t from-white to-glas-100 rounded-lg shadow-lg w-80;
+    @apply flex flex-col p-4 border border-black bg-gradient-to-t from-white to-glas-100 rounded-lg shadow-lg mx-auto w-80;
 }
 
 .form-input {

@@ -6,7 +6,7 @@ from bird_friend.models import BirdType
 
 
 class UploadForm(FlaskForm):
-    bird_type = SelectField("Breed",
+    bird_type = SelectField("Bird Type",
                         choices=[
                             (bird_type.pk, bird_type.bird_type_name)
                             for bird_type in BirdType.objects],
