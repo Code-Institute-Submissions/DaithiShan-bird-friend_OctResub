@@ -191,7 +191,7 @@ The website needs to enable the **site developer** to:
 With these goals in mind, a strategy table was created to determine the trade-off between importance and viability with the following results:
 
 **Strategy Table for Bird Friend:**
-![Strategy Table for Bird Friend Web App](static/images/readme-files/strategy-table.png "Strategy Table for Bird Friend Web App")
+![Strategy Table for Bird Friend Web App](docs/readme-files/strategy-table.png "Strategy Table for Bird Friend Web App")
 
 <div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
@@ -243,7 +243,7 @@ A scope was defined in order to clearly identify what needed to be done in order
 The information architecture was organized in order to ensure that users could navigate through the site with ease and efficiency, with the following results: 
 
 **Information Architecture for Bird Friend:**
-![Information Architecture for Bird Friend Web App](static/images/readme-files/site-map.png "Bird Friend Information Architecture")
+![Information Architecture for Bird Friend Web App](docs/readme-files/site-map.png "Bird Friend Information Architecture")
 
 <strong>4. <u>Skeleton</u></strong>
 
@@ -251,7 +251,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 - Home Page:
 
-     ![](static/images/readme-files/.png "")
+     ![](docs/readme-files/.png "")
 
 <div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
@@ -264,24 +264,24 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
      - The soft, pastel colour scheme was picked to offset the most commonly occuring, vibrant background colors in casual photographs of birds.
 
-    ![Colour Palette](static/images/readme-files/color-palette.png "Colour Palette")
+    ![Colour Palette](docs/readme-files/color-palette.png "Colour Palette")
 
 
 - <strong>Typography</strong>
 
      - The primary font chosen and used on the photo gallery, and bird / user profiles is [Lato](https://fonts.google.com/specimen/Lato "Link to Lato Google Fonts page"). Lato means summer in Polish, and the font reflects its namesake with warmth in its rounded design.
 
-        ![Lato Typeface Example](static/images/readme-files/lato.png "Lato Typeface Example")
+        ![Lato Typeface Example](docs/readme-files/lato.png "Lato Typeface Example")
 
      - The Secondary fonts are [Jaldi](https://fonts.google.com/specimen/Jaldi "Link to Jaldi Google Fonts page") and [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab "Link to Roboto Slab Google Fonts page"). 
      
      - Jaldi is used on the site landing page, and for site headings. It pairs really well with Lato, because it is similarly rounded and warm.
 
-        ![Jaldi Typeface Example](static/images/readme-files/jaldi.png "Jaldi Typeface Example")
+        ![Jaldi Typeface Example](docs/readme-files/jaldi.png "Jaldi Typeface Example")
     
     - Roboto Slab is used on site links, and for site buttons. Its bolded, thick look is perfect for call-to-action elements like links and buttons, but its curves match it well with Lato and Jaldi.
 
-        ![Roboto Slab Typeface Example](static/images/readme-files/roboto-slab.png "Roboto Slab Typeface Example")
+        ![Roboto Slab Typeface Example](docs/readme-files/roboto-slab.png "Roboto Slab Typeface Example")
 
 - <strong>Imagery</strong>
 
@@ -291,8 +291,8 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 ### Wireframes
 
-- [Mobile Wireframes](static/images/readme-files/wireframes/mobile-wireframes.pdf)
-- [Desktop Wireframes](static/images/readme-files/wireframes/desktop-wireframes.pdf)
+- [Mobile Wireframes](docs/readme-files/wireframes/mobile-wireframes.pdf)
+- [Desktop Wireframes](docs/readme-files/wireframes/desktop-wireframes.pdf)
 - Tablet design planned to follow same layout as mobile
 
 <div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
@@ -324,7 +324,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 ### Database Schema
 
-![Database Schema](static/images/readme-files/db-schema.jpg "Database Schema")
+![Database Schema](docs/readme-files/db-schema.jpg "Database Schema")
 
 ### MongoDb
 
