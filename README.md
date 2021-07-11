@@ -449,7 +449,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 ### Custom Error Pages
 
 - I have created an error pages using the flask app_error handlers
-- Each page contains a reason for the error and a navigation link to return to the previous page, along with a humourous image of a sad bulldog in a dress. Errors are:
+- Each page contains a reason for the error and a navigation link to return to the previous page. Errors are:
 	- 404 - not found an error
 	- 403 - no permission error
 	- 500 - server error.
@@ -622,8 +622,8 @@ This application was built on the Flask framework, using Flask Blueprints to spl
 #### Cloudinary Upload API
 
 - In adding user images to the website, I utilised the [Cloudinary Upload API](https://cloudinary.com/documentation/image_upload_api_reference)
-- Within my Cloudinary account, I set up a hot_dogz folder.
-- Within my Bird model I added a method to save uploaded user images into this folder under the format `hot_dogz/{user}/{pk}`
+- Within my Cloudinary account, I set up a bird_friend folder.
+- Within my Bird model I added a method to save uploaded user images into this folder under the format `bird_friend/{user}/{pk}`
 	- All of of a user's bird photos would be saved within one folder, named after the user's username
 	- Each bird's photo would be named after it's primary key
 - If a user deletes a bird photo or deletes their profile, then the bird photo is deleted from the cloudinary database using the built-in `uploader.destroy()` method. 
@@ -637,14 +637,14 @@ This application was built on the Flask framework, using Flask Blueprints to spl
 	- Width: 500px
 	- Crop: scale
 	- Auto render in low quality for smaller file size  
-	- These transformations dramatically reduce file size. Here is an example file size difference between clicking on the original full-size image vs what is rendered on a dog's profile page (from 2.95MB to 21.85kb)
+	- These transformations dramatically reduce file size. Here is an example file size difference between clicking on the original full-size image vs what is rendered on a bird's profile page (from 2.95MB to 21.85kb)
 		- [Before transformations](docs/screenshots/trans_before.png)
 		- [After transformations](docs/screenshots/trans_after.png)
 
 - For the `img_url_card` I wanted images to be a fixed size of 350px x 525px, so I used the transformations `c_fill,g_auto,h_350,w_525,q_auto:low`
 	- Crop is set to fill
 	- `g_auto` = Gravity set to 'auto'. The 'gravity' transformation determines which part of an image to focus on and decides where a crop should be made
-	- Setting it to 'auto' leaves Cloudinary's AI decide where to crop the image, which generally focuses on a dog's face. An example can be seen here:
+	- Setting it to 'auto' leaves Cloudinary's AI decide where to crop the image, which generally focuses on a bird's head. An example can be seen here:
 
 **Without gravity**:
 ![Without gravity](docs/screenshots/without_gravity.png)

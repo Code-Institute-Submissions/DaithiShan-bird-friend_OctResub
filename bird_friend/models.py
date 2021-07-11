@@ -36,7 +36,7 @@ class BirdType(db.Document):
 
 
 class Bird(db.Document):
-    bird_type = db.ReferenceField(BirdType)
+    birdtype = db.ReferenceField(BirdType)
     nickname = db.StringField(max_length=50, required=True)
     img_url = db.URLField()
     img_url_card = db.URLField()

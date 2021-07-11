@@ -13,9 +13,9 @@
             <div class="gap-6 lg:grid lg:grid-cols-2">
                 <div>
                     <fieldset class="pb-2 ">
-                        {{form.bird_type.label}}
-                        {{form.bird_type(class_='form-input')}}
-                        {% for error in form.bird_type.errors %}
+                        {{form.birdtype.label}}
+                        {{form.birdtype(class_='form-input')}}
+                        {% for error in form.birdtype.errors %}
                             <span class="text-red-100 "> {{error}} </span>
                         {% endfor %}
                     </fieldset>

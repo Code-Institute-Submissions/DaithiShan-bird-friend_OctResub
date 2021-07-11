@@ -19,13 +19,13 @@ def upload_bird():
     form = UploadForm()
     if request.method == 'POST' and form.validate_on_submit():
         # Upload bird
-        bird = Bird(name=form.name.data, uploader=current_user.id,
-                  bird_type=form.bird_type.data, about=form.about.data
+        bird = Bird(nickname=form.nickname.data, uploader=current_user.id,
+                  birdtype=form.birdtype.data, about=form.about.data
                   )
         bird.save()
         # Set bird image url to be bird's primary key, for easy deletion and
         # overwriting
-        bird.set_bird_image(form.img_url.data, current_user.username, dog.pk)
+        bird.set_bird_image(form.img_url.data, current_user.username, bird.pk)
         bird.save()
         flash('Photo Uploaded!', 'bird')
         return redirect(
