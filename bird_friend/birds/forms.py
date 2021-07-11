@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, Length
 from bird_friend.models import BirdType
 
 
-lass UploadForm(FlaskForm):
+class UploadForm(FlaskForm):
     bird_type = SelectField("Breed",
                         choices=[
                             (bird_type.pk, bird_type.bird_type_name)
