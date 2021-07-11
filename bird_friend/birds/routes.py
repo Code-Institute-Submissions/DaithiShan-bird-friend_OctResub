@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request, Blueprint
 from flask_login.utils import login_required
-from bird_friend.dogs.forms import UploadForm
+from bird_friend.birds.forms import UploadForm
 from flask_login import current_user
 from bird_friend.models import Bird, BirdType
 
