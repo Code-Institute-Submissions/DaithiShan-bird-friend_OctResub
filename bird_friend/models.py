@@ -4,6 +4,8 @@ from mongoengine import CASCADE
 from flask_login import UserMixin
 from flask import current_app
 from bird_friend import login
+import datetime
+from time import time
 from cloudinary import uploader
 import os
 
@@ -74,7 +76,7 @@ class Bird(db.Document):
         self.img_url_thumb = f"{endpoint}{thumb_transformation}" \
                              f"{version}{public_id}.{image_format}"
 
-   def delete_bird_image(self, user, pk):
+    def delete_bird_image(self, user, pk):
         public_id = f"bird_friend/{user}/{pk}"
         uploader.destroy(public_id)
 

@@ -23,8 +23,10 @@ def create_app(config_class=Config):
     login.init_app(app)
 
     from bird_friend.users.routes import users
+    from bird_friend.birds.routes import birds
     from bird_friend.main.routes import main
     app.register_blueprint(users)
+    app.register_blueprint(birds)
     app.register_blueprint(main)
 
     return app

@@ -7,7 +7,7 @@ from bird_friend.models import Bird, BirdType
 birds = Blueprint('birds', __name__)
 
 
-@dogs.route('/upload_dog', methods=['GET', 'POST'])
+@birds.route('/upload_bird', methods=['GET', 'POST'])
 @login_required
 def upload_bird():
     """
