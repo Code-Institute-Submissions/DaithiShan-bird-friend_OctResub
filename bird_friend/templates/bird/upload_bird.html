@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="relative bg-bottom bg-no-repeat min-h-screen-less-both-nav md:min-h-screen-less-nav bg-dog8 lg:bg-50%">
+    <h1 class="title text-gorm-100 ">{{title}}</h1>
+        <!-- {% if title == 'Upload Bird' %} -->
+        <form action="{{url_for('birds.upload_bird')}}" method="POST" enctype="multipart/form-data" class="z-10 flex flex-col p-4 mx-auto bg-white border border-gray-100 rounded-lg shadow-md fade-in w-80 lg:w-1/2 " novalidate>
+        <!-- {% else %}
+        <form action="{{url_for('birds.edit_bird', bird_id=bird.pk)}}" method="POST" enctype="multipart/form-data" class="z-10 flex flex-col p-4 mx-auto bg-white border border-gray-100 rounded-lg shadow-md fade-in w-80 lg:w-1/2 " novalidate>
+        {% endif %} -->
+            {{ form.hidden_tag()}}
+            <div class="gap-6 lg:grid lg:grid-cols-2">
+                <div>
+                    <fieldset class="pb-2 ">
+                        {{form.name.label}}
+                        {{form.name(class_='form-input')}}
+                        {% for error in form.name.errors %}
+                            <span class="text-rua-100 "> {{error}} </span>
+                        {% endfor %}
+                    </fieldset>
+                    <fieldset class="pb-2 ">
+                        {{form.img_url.label}}
+                        {{form.img_url(class_='form-input')}}
+                        {% for error in form.img_url.errors %}
+                            <span class="text-rua-100 "> {{error}} </span>
+                        {% endfor %}
+                    </fieldset>
+                    <fieldset class="pb-2 ">
+                        {{form.breed.label}}
+                        {{form.breed(class_='form-input')}}
+                        {% for error in form.breed.errors %}
+                            <span class="text-red-100 "> {{error}} </span>
+                        {% endfor %}
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset class="pb-2 ">
+                        {{form.about.label}}
+                        {{form.about(class_='form-input h-32 lg:h-40 lg:mb-5', placeholder="What's a short backstory to this photo?")}}
+                        {% for error in form.about.errors %}
+                            <span class="text-rua-100 "> {{error}} </span>
+                        {% endfor %}
+                    </fieldset>
+                    <fieldset class="pb-2">
+                        {{form.submit(class_='btn-form')}}
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+</div>
+{% endblock content %}
