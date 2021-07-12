@@ -60,3 +60,15 @@ def register():
         flash(f'Registration successful, {user.username}!')
 
     return render_template("user/register.html", title="Register", form=form)
+
+
+@users.route('/profile/<username>')
+def profile(username):
+    """
+    Route for displaying a user's profile page
+    displaying photos they've taken
+    """
+    user = User.objects(username=username).first()
+    user_dogs = Dog.objects(owner=user)
+    return render_template('user/profile.html', title=f"{user.username}",
+                           user=user, user_dogs=user_dogs)
