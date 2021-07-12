@@ -2,14 +2,14 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import StringField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import DataRequired, Length
-from bird_friend.models import BirdType
+from bird_friend.models import Birdtype
 
 
 class UploadForm(FlaskForm):
     birdtype = SelectField("Bird Type",
                         choices=[
                             (birdtype.pk, birdtype.birdtype_name)
-                            for birdtype in BirdType.objects],
+                            for birdtype in Birdtype.objects],
                         validators=[DataRequired()])
     nickname = StringField("Nickname",
                        validators=[

@@ -28,7 +28,7 @@ class User(UserMixin, db.Document):
         return f"User('{self.username}','{self.email}')"
 
 
-class BirdType(db.Document):
+class Birdtype(db.Document):
     birdtype_name = db.StringField(required=True)
 
     def __repr__(self):
@@ -36,7 +36,7 @@ class BirdType(db.Document):
 
 
 class Bird(db.Document):
-    birdtype = db.ReferenceField(BirdType)
+    birdtype = db.ReferenceField(Birdtype)
     nickname = db.StringField(max_length=50, required=True)
     img_url = db.URLField()
     img_url_card = db.URLField()
@@ -62,14 +62,14 @@ class Bird(db.Document):
         # add to URL for building URL
         endpoint = f"https://res.cloudinary.com/{cloud_name}/image/upload"
         # Add transformations for delivering lower quality, smaller version
-        # for dog card and dog profile page respectively
+        # for bird card and bird profile page respectively
         card_transformation = '/c_fill,g_auto,h_350,w_525,q_auto:low'
         thumb_transformation = '/w_500,c_scale,q_auto:low'
         # Get the version, id and format details from uploaded image
         version = f"/v{res['version']}/"
         public_id = res["public_id"]
         image_format = res["format"]
-        # add links for full quality image and thumbnails to Dog model
+        # add links for full quality image and thumbnails to Bird model
         self.img_url = f"{endpoint}{version}{public_id}.{image_format}"
         self.img_url_card = f"{endpoint}{card_transformation}" \
                             f"{version}{public_id}.{image_format}"
