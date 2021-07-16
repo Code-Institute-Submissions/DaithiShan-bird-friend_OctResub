@@ -33,3 +33,13 @@ def upload_bird():
     # 'GET' functionality
     return render_template('bird/upload_bird.html', form=form,
                            title="Upload Bird")
+
+
+@birds.route('/bird/<bird_id>', methods=['GET'])
+def bird_page(bird_id):
+    """
+    Route for displaying the a bird's profile page
+    """
+    bird = Bird.objects(pk=bird_id).first()
+    return render_template(
+        'bird/bird_page.html', bird=bird, title=f"{bird.nickname}'s Page")

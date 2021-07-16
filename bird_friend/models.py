@@ -24,6 +24,9 @@ class User(UserMixin, db.Document):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
     
+    def set_avatar(self, img_url):
+        self.img_url = img_url
+    
     def __repr__(self):
         return f"User('{self.username}','{self.email}')"
 
