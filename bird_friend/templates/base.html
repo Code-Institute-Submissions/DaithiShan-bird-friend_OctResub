@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description"
         content="Bird Friend is a photo sharing app, where you share photos of birds in your neighbourhood!">
-    <meta name="keywords" content="Python, Flask, Tailwind, Photo, Sharing, Dogs">
+    <meta name="keywords" content="Python, Flask, Tailwind, Photo, Sharing, Birds">
     <meta name="author" content="David Burns">
     <meta property="og:title" content="Bird Friend">
     <meta property="og:description"
@@ -61,15 +61,21 @@
                     </span>
                 </a>
                 <div class="md:items-center md:w-auto flex">
-                    <div class="md:flex hidden">
-                        <a class="block md:text-black mr-4" href="#">Logout</a>
-                        <a class="block md:text-black mr-4" href="#">Contact</a>
-                        <a class="block md:text-black mr-4" href="#">Upload</a>
-                        <a class="block md:text-black mr-4" href="#">My Profile</a>
-                    </div>
-                    <div class="flex text-sm" v-else>
+                    {% if current_user.is_authenticated %}
+                        <div class="hidden md:flex">
+                            <a class="block md:text-black mr-4" href="{{url_for('users.logout')}}">Logout</a>
+                            <a class="block md:text-black mr-4" href="{{ url_for('birds.upload_bird') }}">Upload</a>
+                            <a class="block md:text-black mr-4" href="#">Contact</a>
+                        </div>
+                    {% endif %}
+                <div class="flex text-sm" v-else>
+                    <!-- Login & Register buttons vs My Profile depending on whether user is logged in-->
+                    {% if current_user.is_anonymous %}   
                         <a class="btn-green" href="{{ url_for('users.login') }}">Login</a>
                         <a class="btn-red" href="{{ url_for('users.register') }}">Register</a>
+                    {% else %}
+                        <a class="btn-red" href="{{url_for('users.profile', username=current_user.username)}}">My Profile</a>
+                    {% endif %}
                     </div>
                 </div>
             </nav>
@@ -77,32 +83,34 @@
         <!-- /navbar -->
 
         <!-- MAIN CONTENT -->
-        <main class="{{'min-h-screen-less-both-nav' if title and current_user.is_authenticated else 'min-h-screen-less-nav'}} md:min-h-screen-less-nav md:mb-0 mx-auto">
-             <!--
+        <main
+            class="{{'min-h-screen-less-both-nav' if title and current_user.is_authenticated else 'min-h-screen-less-nav'}} md:min-h-screen-less-nav md:mb-0 mx-auto">
+            <!--
       Conditional height settings for mobile viewports:
       Set height minus both navs if on mobile and not on index.html 
       No bottom nav on landing page
       Else set height minus top nav only.
       Then set height minus top only for *all* views tablet and above-->
-        <!-- FLASH MESSAGES -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          <div class="absolute w-full max-w-screen-sm x-center">
-            {% for category, message in messages %}
-              <div class="w-11/12 p-2 m-2 mx-auto text-center text-white {{category}} rounded-lg shadow-xl animate-flash ">
-                <!-- Category decides color of flash and icon used -->
-                <p><i class="fas fa-{{category}} mr-4"></i>{{message}}</p>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
-      {% endwith %}
+            <!-- FLASH MESSAGES -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="absolute w-full max-w-screen-sm x-center">
+                {% for category, message in messages %}
+                <div
+                    class="w-11/12 p-2 m-2 mx-auto text-center text-white {{category}} rounded-lg shadow-xl animate-flash ">
+                    <!-- Category decides color of flash and icon used -->
+                    <p><i class="fas fa-{{category}} mr-4"></i>{{message}}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
 
             {% block content %}
             {% endblock %}
-            
+
         </main>
-        
+
         <!-- MOBILE NAVIGATION BAR -->
         <!-- Only visible on mobile and if user is signed in -->
         {% if current_user.is_authenticated %}
