@@ -5,10 +5,11 @@ from flask_login.utils import login_required
 from mongoengine.errors import DoesNotExist
 from bird_friend import db
 from bird_friend.users.forms import RegisterForm, LoginForm
-from bird_friend.models import User
+from bird_friend.models import User, Bird
 from flask_login import current_user, login_user, logout_user
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from random import randint
 if os.path.exists("env.py"):
     import env
 
@@ -44,6 +45,13 @@ def login():
     return render_template('user/login.html', title="Login", form=form)
 
 
+@users.route('/logout')
+def logout():
+    """route to log out current user"""
+    logout_user()
+    return redirect(url_for('main.index'))
+
+
 @users.route("/register", methods=["GET", "POST"])
 def register():
     # route for registering new users
@@ -55,6 +63,9 @@ def register():
     if request.method == "POST" and form.validate_on_submit():
         user = User(username=form.username.data.lower(), email=form.email.data)
         user.set_password(form.password.data)
+        user.set_avatar(
+            f'https://res.cloudinary.com/the-mater-foundation/image/upload/v1626200015'
+            f'/bird_friend/avatars/bird{randint(1, 12)}.svg')
         user.save()
         login_user(user)
         flash(f'Registration successful, {user.username}!')
@@ -69,6 +80,29 @@ def profile(username):
     displaying photos they've taken
     """
     user = User.objects(username=username).first()
-    user_dogs = Dog.objects(owner=user)
+    user_birds = Bird.objects(uploader=user)
     return render_template('user/profile.html', title=f"{user.username}",
-                           user=user, user_dogs=user_dogs)
+                           user=user, user_birds=user_birds)
+
+
+@users.route('/select_avatar')
+@login_required
+def select_avatar():
+    """route for selecting avatar for new users
+        or editing avatar for current users"""
+
+    # Fuctioning if user has selected a new avatar
+    if request.args.get('selected'):
+        user = User.objects.get(username=current_user.username)
+        user.set_avatar(request.args.get('selected'))
+        user.save()
+        flash('Your avatar has been updated!', 'check-circle')
+        return redirect(
+            url_for('users.profile', username=current_user.username))
+    # Default functioning to present available avatars
+    avatars = [
+        f'https://res.cloudinary.com/the-mater-foundation/image/upload/v1626199991'
+        f'/bird_friend/avatars/bird{i}.svg'
+        for i in range(1, 12)]
+    return render_template('user/select_avatar.html', avatars=avatars,
+                           title='Choose Avatar')
