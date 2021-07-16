@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Bird PROFILE PAGE -->
+    <div class="mx-auto md:max-w-xl md:mt-6 lg:max-w-2xl">
+        <!-- MAIN PICTURE -->
+        <div class="flex flex-col items-center justify-end w-full">
+            <img src="{{bird.img_url_thumb}}" alt="A picture of {{bird.nickname}}" class="object-cover rounded shadow-xl h-72">
+            <a href="{{bird.img_url}}" target="_blank" rel=”noreferrer” class="px-1 -mt-6 font-semibold text-gray-300 bg-gray-700 opacity-70 hover:opacity-100 focus:opacity-100">Full-size image <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <!-- Bird DETAILS (Birdtype, Nickname, About, Upload Date) -->
+        <div class="text-lg text-center">
+            <h2 class="title text-gorm-100 ">{{bird.nickname}}</h2>
+            <p class="text-xs italic text-liath-100">Added on: {{bird.upload_date.strftime('%d.%m.%Y')}}</p>
+            <div class="flex gap-2 justify-evenly">
+                <div class="flex-1">
+                    <p class="text-xs text-liath-100 uppercase">Birdtype</p>
+                    <p class="font-semibold text-liath-100 ">{{bird.birdtype.birdtype_name}}</p>
+                </div>
+                <div class="flex-1">
+                    <p class="text-xs text-gray-600 uppercase ">Uploader</p>
+                    <a href="{{url_for('users.profile', username=bird.uploader.username)}}" class="font-semibold text-gorm-100 ">{{bird.uploader.username}}</a>
+                </div>
+            </div>
+        
+            <div class="p-4 text-center">
+                <p class="text-sm text-liath-100 uppercase">About:</p>
+                <p class="text-base font-semibold text-liath-100 ">{{bird.about if bird.about else "No background story yet!"}}</p>
+            </div>
+    </div>
+
+
+{% endblock content %}
