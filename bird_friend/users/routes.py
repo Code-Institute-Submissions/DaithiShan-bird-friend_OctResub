@@ -65,12 +65,14 @@ def register():
         user.set_password(form.password.data)
         user.set_avatar(
             f'https://res.cloudinary.com/the-mater-foundation/image/upload/v1626200015'
-            f'/bird_friend/avatars/bird{randint(1, 12)}.svg')
+            f'/bird_friend/avatars/bird{randint(1, 12)}.jpg')
         user.save()
         login_user(user)
-        flash(f'Registration successful, {user.username}!')
-
-    return render_template("user/register.html", title="Register", form=form)
+        flash("Registered! Please choose an avatar", 'check-circle')
+        # Redirect to select avatar
+        return redirect(url_for('users.select_avatar'))
+    # 'GET' functionality
+    return render_template('user/register.html', title="Register", form=form)
 
 
 @users.route('/profile/<username>')
@@ -101,8 +103,8 @@ def select_avatar():
             url_for('users.profile', username=current_user.username))
     # Default functioning to present available avatars
     avatars = [
-        f'https://res.cloudinary.com/the-mater-foundation/image/upload/v1626199991'
-        f'/bird_friend/avatars/bird{i}.svg'
-        for i in range(1, 12)]
+        f'https://res.cloudinary.com/the-mater-foundation/image/upload/v1626200015'
+        f'/bird_friend/avatars/bird{i}.jpg'
+        for i in range(1, 13)]
     return render_template('user/select_avatar.html', avatars=avatars,
                            title='Choose Avatar')
