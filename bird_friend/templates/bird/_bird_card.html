@@ -9,7 +9,15 @@
         <div class="flex flex-col flex-1 px-1 text-black font-body justify-evenly">
             <p>Birdtype: <span>{{bird.birdtype.birdtype_name}}</span></p>
             <p>Nickname: <span>{{bird.nickname}}</span></p>
-            <p>Photographer: <a href="{{url_for('users.profile', username=bird.uploader.username)}}" class="text-sm uppercase text-gorm-100 hover:underline focus:text-glas-100">{{bird.uploader.username}}</a></p>
+             <!-- Display uploader name unless it's the current user, if so display edit and delete buttons -->
+             {% if bird.uploader == current_user or current_user.username == 'admin' %}
+                <div class="flex gap-2">
+                    <a href="{{url_for('birds.edit_bird', bird_id=bird.pk)}}" class="underline">Edit</a>
+                    <a href="{{url_for('birds.delete_bird', bird_id=bird.pk)}}" class="underline ">Delete</a>
+                </div>
+            {% else %}
+                <p>Photographer: <a href="{{url_for('users.profile', username=bird.uploader.username)}}" class="text-sm uppercase text-gorm-100 hover:underline focus:text-glas-100">{{bird.uploader.username}}</a></p>
+            {% endif %}
         </div>
     </div>
 </div>
