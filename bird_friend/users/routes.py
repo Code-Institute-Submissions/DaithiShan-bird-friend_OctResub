@@ -4,7 +4,8 @@ from flask import (
 from flask_login.utils import login_required
 from mongoengine.errors import DoesNotExist
 from bird_friend import db
-from bird_friend.users.forms import RegisterForm, LoginForm
+from bird_friend.users.forms import (
+    RegisterForm, LoginForm, EditProfileForm, DeleteAccountForm)
 from bird_friend.models import User, Bird
 from flask_login import current_user, login_user, logout_user
 from bson.objectid import ObjectId
@@ -108,3 +109,59 @@ def select_avatar():
         for i in range(1, 13)]
     return render_template('user/select_avatar.html', avatars=avatars,
                            title='Choose Avatar')
+
+
+@users.route('/edit_profile/<user_id>', methods=['GET', 'POST'])
+@login_required
+def edit_profile(user_id):
+    """route for editing username, email
+    or password"""
+    user = User.objects(pk=user_id).first()
+    if user != current_user and current_user.username != 'admin':
+        flash("You cannot edit someone else's profile!", "exclamation")
+        return redirect(url_for('main.gallery'))
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        user.username = form.username.data
+        user.email = form.email.data
+        user.save()
+        flash('Account updated successfully!', 'check-circle')
+        return redirect(url_for('users.profile', username=user.username))
+    elif request.method == 'GET':
+        form.username.data = user.username
+        form.email.data = user.email
+    return render_template('user/edit_profile.html', title='Edit Profile',
+                           user=user, form=form)
+
+
+@users.route('/delete_account/<user_id>', methods=['GET', 'POST'])
+@login_required
+def delete_account(user_id):
+    """route for editing username, email
+    or password"""
+    user = User.objects(pk=user_id).first()
+    if user != current_user and current_user.username != 'admin':
+        flash("You cannot delete someone else's profile!", "exclamation")
+        return redirect(url_for('main.gallery', view='hot'))
+    form = DeleteAccountForm()
+    if form.validate_on_submit():
+        # Complete password check before deletion (admin can enter admin
+        # password)
+        if not current_user.check_password(form.password.data):
+            flash('Invalid Password', 'exclamation')
+            return redirect(url_for('users.profile', username=user.username))
+        else:
+            if current_user.username != 'admin':
+                # Logout user to home screen
+                logout_user()
+            # Delete stored cloudinary image for each of user's photos
+            birds = Bird.objects(uploader=user)
+            for bird in birds:
+                bird.delete_bird_image(user.username, bird.pk)
+            # Delete user (which will cascade delete birds, comments, etc)
+            user.delete()
+            flash('Account deleted! Hope to see you again', 'check-circle')
+            return redirect(url_for('main.index'))
+
+    return render_template('user/delete_account.html', user=user,
+                           title='Delete Account', form=form)
