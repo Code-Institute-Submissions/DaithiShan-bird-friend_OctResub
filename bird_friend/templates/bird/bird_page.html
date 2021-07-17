@@ -29,8 +29,8 @@
             </div>
             {% if bird.uploader == current_user or current_user.username == 'admin' %}
                 <div class="flex justify-center gap-8">
-                    <div><a href=" {{url_for('birds.edit_bird', bird_id=bird.pk)}} " class="btn btn-green btn-small">Edit Photo</a></div>
                     <div><a href=" {{url_for('birds.delete_bird', bird_id=bird.pk)}}  " class="btn btn-red btn-small">Delete Photo</a></div>
+                    <div><a href=" {{url_for('birds.edit_bird', bird_id=bird.pk)}} " class="btn btn-green btn-small">Edit Photo</a></div>
                 </div>
             {% endif %}
     </div>
