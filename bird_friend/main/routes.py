@@ -15,6 +15,5 @@ def index():
 
 @main.route('/gallery')
 def gallery():
-    return render_template('gallery.html', title="Gallery")
     birds = Bird.objects()
-    return render_template('gallery.html', title="Gallery", birds=birds)
+    return render_template('main/gallery.html', title="Gallery", birds=birds)

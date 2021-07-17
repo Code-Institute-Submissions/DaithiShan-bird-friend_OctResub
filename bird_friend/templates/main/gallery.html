@@ -7,9 +7,10 @@
             <p>POPULAR</p>
             <p>NEW</p>
         </div>
-        <div class="flex flex-col h-screen gap-4 px-4 py-10 bg-white bg-opacity-70">
+        <div class="flex flex-col h-screen gap-4 px-4 py-10 bg-ban-100 bg-opacity-70">
                 {% for bird in birds %}
-                    {% include '_bird_card.html' %}
+                    {% include 'bird/_bird_card.html' %}
                 {% endfor %}
         </div>
     </div>
+    {% endblock %}
