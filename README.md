@@ -539,7 +539,7 @@ module.exports = {
 This application was built on the Flask framework, using Flask Blueprints to split the application into the following modules:
 	- main
 	- users
-	- dogs
+	- birds
 	- errors
 
 - The purpose of this design is to make it easier to find routes and elements if they need to be updated or changed.
