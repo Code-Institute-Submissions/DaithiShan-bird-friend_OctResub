@@ -26,3 +26,25 @@ class UploadForm(FlaskForm):
                                      message="About section has a max "
                                              "character limit of 300!")])
     submit = SubmitField('Upload')
+
+
+class EditForm(FlaskForm):
+    birdtype = SelectField("Birdtype",
+                        choices=[(birdtype.pk, birdtype.birdtype_name)
+                                 for birdtype in Birdtype.objects],
+                        validators=[DataRequired()])
+    img_url = FileField("Photo",
+                        validators=[FileAllowed(['jpg', 'jpeg', 'png'])])
+    nickname = StringField("Nickname",
+                       validators=[
+                           DataRequired(),
+                           Length(max=50,
+                                  message="Max name length is 50 characters! "
+                                          "No space for the full Latin name, sorry!")])
+    about = TextAreaField("Tell us about this photo!",
+                          validators=[
+                              Length(max=250,
+                                     message="About section has a max "
+                                             "character "
+                                             "limit of 300!")])
+    submit = SubmitField('Submit')
