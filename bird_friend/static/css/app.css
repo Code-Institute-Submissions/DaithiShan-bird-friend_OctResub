@@ -34,6 +34,10 @@
     @apply bg-bui-100 text-black font-heading border border-black hover:border-transparent hover:bg-white focus:ring-rua-100 w-full py-2 text-lg font-bold leading-none tracking-wide text-center rounded-md;
 }
 
+.btn-small {
+    @apply px-2 py-1 text-sm text-white rounded-md focus:ring-2;
+}
+
 /* FORMS */
 
 .form-container {
