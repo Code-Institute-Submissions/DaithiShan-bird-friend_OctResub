@@ -49,6 +49,21 @@
         {% endif %}
     </div>
     <!-- USER FAVOURITES -->
+    <div>
+        <h2 class="py-6 text-4xl text-center sm:text-5xl font-title text-gorm-100"> Faved by Me </h2>
+        {% if favourites|length %}
+        <div class="overflow-y-auto scroll-box lg:mb-6 max-h-96">
+            <div
+                class="flex flex-wrap items-center justify-center max-w-screen-xl py-6 mx-auto justify-items-center gap-y-6 gap-x-2">
+                {% for bird in favourites %}
+                {% include 'bird/_bird_card.html' %}
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <p class="py-6 text-xl font-bold text-center text-gray-500">No photos favourited yet!</p>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock content %}
