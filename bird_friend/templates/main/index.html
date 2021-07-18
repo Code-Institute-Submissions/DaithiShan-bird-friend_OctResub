@@ -6,7 +6,7 @@ https://github.com/cjcon90/hot-dogz/blob/main/hot_dogz/templates/main -->
         <div class="flex flex-col justify-start w-screen text-center landscape:h-2/5 landscape:justify-evenly ">
                 <h1 class="mt-4 tracking-wider text-gorm-100 text-6xl font-welcome md:text-9xl landscape:mt-0">Bird Friend</h1>
                 <h2 class="mt-4 text-lg text-liath-100 md:text-xl lg:text-2xl"><em>A reason to look up</em></h2>
-                <a href="#" class="z-10 w-auto px-6 mx-auto mt-10 btn-yellow">View Photos</a>
+                <a href="{{url_for('main.gallery')}}" class="z-10 w-auto px-6 mx-auto mt-10 btn-yellow">View Photos</a>
         </div>
         <img src="https://res.cloudinary.com/the-mater-foundation/image/upload/v1625913632/bird_friend/desktop-bob_civxqv.svg"
                 alt="Photo of a friendly bird waving"
