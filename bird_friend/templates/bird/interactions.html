@@ -1,0 +1,8 @@
+<div class="flex text-xl justify-evenly ">
+    <div class="fave-box">
+        <!-- Color red if user has already favourited or photo is theirs, else color gray -->
+        <a href="{{url_for('users.favourite', bird_id=bird.pk)}}" aria-label="Add photo to favourites">
+            <i class="{{'text-gorm-100' if current_user in bird.faved_by or current_user == bird.owner else 'text-liath-100'}} fas fa-heart"></i>
+        </a>
+    </div>
+</div>

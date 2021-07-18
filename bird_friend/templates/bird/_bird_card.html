@@ -20,4 +20,9 @@
             {% endif %}
         </div>
     </div>
+    <div class="flex pb-1">
+        <a href="{{url_for('birds.bird_page', bird_id=bird.pk)}}" class="self-end flex-1 text-center underline ">Full Size</a>
+        <!-- Include favourite button -->
+        <div class="flex-1">{% include 'bird/interactions.html' %}</div>
+    </div>
 </div>
