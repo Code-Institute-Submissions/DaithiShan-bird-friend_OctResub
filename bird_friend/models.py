@@ -86,11 +86,6 @@ class Bird(db.Document):
         uploader.destroy(public_id)
 
 
-class Favourite(db.Document):
-    user = db.ReferenceField(User)
-    bird = db.ReferenceField(Bird)
-
-
 @login.user_loader
 def load_user(id):
     return User.objects.get(pk=id)
