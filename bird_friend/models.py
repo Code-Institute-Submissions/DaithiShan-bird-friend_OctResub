@@ -47,6 +47,8 @@ class Bird(db.Document):
     about = db.StringField(max_length=250,
                            default="No backstory to this photo yet!")
     uploader = db.ReferenceField(User, reverse_delete_rule=CASCADE)
+    faved_by = db.ListField(db.ReferenceField(User))
+    favourites = db.IntField()
     upload_date = db.DateTimeField(default=datetime.datetime.utcnow)
 
     def __repr__(self):
@@ -82,6 +84,11 @@ class Bird(db.Document):
     def delete_bird_image(self, user, pk):
         public_id = f"bird_friend/{user}/{pk}"
         uploader.destroy(public_id)
+
+
+class Favourite(db.Document):
+    user = db.ReferenceField(User)
+    bird = db.ReferenceField(Bird)
 
 
 @login.user_loader
