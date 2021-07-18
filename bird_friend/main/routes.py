@@ -10,6 +10,9 @@ def index():
     """Route for visitors not yet logged in or
     signed up to the photo-sharing app
     """
+    if current_user.is_authenticated:
+        # redirect users to main page if they are already registered
+        return redirect(url_for('main.gallery'))
     return render_template('main/index.html')
 
 
