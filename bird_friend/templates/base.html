@@ -74,6 +74,7 @@
                         <a class="btn-green" href="{{ url_for('users.login') }}">Login</a>
                         <a class="btn-red" href="{{ url_for('users.register') }}">Register</a>
                     {% else %}
+                        <a class="btn-green" href="{{ url_for('main.gallery') }}">Gallery</a>
                         <a class="btn-red" href="{{url_for('users.profile', username=current_user.username)}}">My Profile</a>
                     {% endif %}
                     </div>
