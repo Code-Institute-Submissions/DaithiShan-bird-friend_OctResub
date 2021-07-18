@@ -80,12 +80,13 @@ def register():
 def profile(username):
     """
     Route for displaying a user's profile page
-    displaying photos they've taken
+    displaying photos they've taken, and photos they've favourited
     """
     user = User.objects(username=username).first()
     user_birds = Bird.objects(uploader=user)
+    favourites = Bird.objects(faved_by__contains=user.id)
     return render_template('user/profile.html', title=f"{user.username}",
-                           user=user, user_birds=user_birds)
+                           user=user, user_birds=user_birds, favourites=favourites)
 
 
 @users.route('/select_avatar')
@@ -165,3 +166,27 @@ def delete_account(user_id):
 
     return render_template('user/delete_account.html', user=user,
                            title='Delete Account', form=form)
+
+
+@users.route('/favourite/<bird_id>')
+@login_required
+def favourite(bird_id):
+    """
+    Route for saving a photo to the current
+    user's favourites
+    """
+    bird = Bird.objects(pk=bird_id).first_or_404()
+    # Remove from favourites if already favourites
+    if current_user in bird.faved_by:
+        bird.update(pull__faved_by=current_user.id)
+        bird.update(dec__favourites=1)
+    elif bird.uploader == current_user:
+        flash(f"You can't favourite your own photo, but it's gorgeous!", 'heart')
+        return request.referrer
+    # else add to favourites
+    else:
+        bird.update(push__faved_by=current_user.id)
+        flash(f"{bird.nickname} added to your favourite photos!", 'heart')
+
+    # Return to previous page
+    return redirect(request.referrer)
