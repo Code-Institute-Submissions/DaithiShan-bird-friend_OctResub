@@ -34,6 +34,18 @@ module.exports = {
         heading: ['Roboto Slab'],
         body: ['Lato']
       },
+
+      backgroundSize: {
+        'auto': 'auto',
+        'cover': 'cover',
+        'contain': 'contain',
+        '50%': '50%',
+        '40%': '40%',
+      },
+      backgroundImage: {
+        'bird1': "url('https://res.cloudinary.com/the-mater-foundation/image/upload/v1626533136/bird_friend/wallpapers/bird1.png')",
+        'bird2': "url('https://res.cloudinary.com/the-mater-foundation/image/upload/v1626533136/bird_friend/wallpapers/bird2.png')"
+      },
       minHeight: {
         "screen/2": "50vh",
         "screen-less-nav": "calc(calc(var(--vh, 1vh) * 100) - 4rem)",

@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 class="mb-10 text-5xl">Gallery</h1>
-    <div class="bg-fixed bg-bottom bg-no-repeat bg-contain bg-dog5">
-        <h1 class="title text-glas-100 ">Gallery</h1>
-        <div class="grid grid-cols-3 place-items-center">
-            <p>POPULAR</p>
-            <p>NEW</p>
+    <div class="bg-fixed bg-bottom bg-no-repeat bg-max-sm-contain">
+        <h1 class="title text-gorm-100">Gallery</h1>
+        <div class="grid grid-cols-2 py-4 lg:py-2 place-items-center">
+            <a href="#" class="font-title hover:underline focus:italic text-5xl text-gorm-100"> Popular</a>
+            <a href="#" class="font-title hover:underline focus:italic text-5xl text-gorm-100">New</a>
         </div>
-        <div class="flex flex-col h-screen gap-4 px-4 py-10 bg-ban-100 bg-opacity-70">
+        <div class="flex flex-col gap-6 p-4 lg:grid lg:grid-cols-2 lg:w-max lg:mx-auto {{'gallery-animate' if animate == 'on'}}">
                 {% for bird in birds %}
                     {% include 'bird/_bird_card.html' %}
                 {% endfor %}
