@@ -424,7 +424,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 - Displays a larger thumbnail photo of the bird, without cropping to card aspect ratio
 	- This image features a link to see original, user upload full-size image
 - Displays photo info: Bird Type, Camera Type, Bird Nickname, Uploader, Liked By and the Photo Backstory.
-- If current user is photo's owner, then displays buttons to edit or delete photo of bird
+- If current user is photo's uploader, then displays buttons to edit or delete photo of bird
 	- Edit Bird Photo will load a form with any information pre-filled
 	- Uploading a new photo will replace the previous Photo in Bird Friend's cloudinary database
 	- Delete photo will ask user's to confirm before deletion

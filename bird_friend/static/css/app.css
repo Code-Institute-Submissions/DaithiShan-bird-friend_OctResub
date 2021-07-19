@@ -38,6 +38,15 @@
     @apply px-2 py-1 text-sm rounded-md focus:ring-2;
 }
 
+.btn-goback {
+    @apply w-full p-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100 focus:outline-none;
+}
+
+.btn-alt-goback {
+    @apply w-full p-2 bg-bui-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white focus:outline-none;
+}
+
+
 /* FORMS */
 
 .form-container {

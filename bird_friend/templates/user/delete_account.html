@@ -3,7 +3,7 @@
 {% block content %}
     <div class="bg-bottom bg-no-repeat bg-contain min-h-screen-less-nav lg:bg-50% lg:bg-right-bottom">
         <div class="flex flex-col gap-3 py-4 text-center">
-            <h2 class="text-3xl text-primary-500 font-title">Are you <strong>sure</strong> you want to delete your account?</h2>
+            <h2 class="text-3xl text-gorm-100 font-title">Are you <strong>sure</strong> you want to delete your account?</h2>
             <h3 class="text-2xl font-semibold text-liath-100">This can't be undone!</h3>
         </div>
         <form action="{{url_for('users.delete_account', user_id=user.id)}}" method="POST" class="form-container" novalidate>
@@ -19,5 +19,10 @@
                     {{form.submit(class_='btn-form')}}
                 </fieldset>
         </form>
+        <div class="flex flex-col items-center gap-4 mt-7 mb-4 text-xl font-bold text-center">
+            <div>
+                <input type="button" class="btn-goback" value="Go Back" onclick="history.back(-1)" />
+            </div>
+        </div>
     </div>
 {% endblock content %}

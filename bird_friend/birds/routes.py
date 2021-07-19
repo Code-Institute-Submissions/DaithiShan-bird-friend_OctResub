@@ -78,7 +78,7 @@ def edit_bird(bird_id):
 def delete_bird(bird_id):
     """Route for deleting a bird from database"""
     bird = Bird.objects(pk=bird_id).first()
-    if bird.owner != current_user and current_user.username != 'admin':
+    if bird.uploader != current_user and current_user.username != 'admin':
         flash("You cannot delete someone else's photo!", "exclamation")
         return redirect(url_for('main.gallery'))
     if request.method == 'POST':
