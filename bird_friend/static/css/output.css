@@ -1309,6 +1309,7 @@ video {
 
 .btn-green {
   margin-left: 0.5rem;
+  cursor: pointer;
   border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;
@@ -1344,10 +1345,11 @@ video {
 
 .btn-red {
   margin-left: 0.5rem;
+  cursor: pointer;
   border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(219, 234, 254, var(--tw-border-opacity))
+  border-color: rgba(219, 234, 254, var(--tw-border-opacity));
 }
 
 .btn-red:hover{
@@ -1378,10 +1380,11 @@ video {
 }
 
 .btn-yellow {
+  cursor: pointer;
   border-radius: 0.375rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(219, 234, 254, var(--tw-border-opacity))
+  border-color: rgba(219, 234, 254, var(--tw-border-opacity));
 }
 
 .btn-yellow:hover{
@@ -1422,10 +1425,11 @@ video {
 }
 
 .btn-red-large {
+  cursor: pointer;
   border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(219, 234, 254, var(--tw-border-opacity))
+  border-color: rgba(219, 234, 254, var(--tw-border-opacity));
 }
 
 .btn-red-large:hover{
@@ -1470,6 +1474,7 @@ video {
 
 .btn-form {
   width: 100%;
+  cursor: pointer;
   border-radius: 0.375rem;
   border-width: 1px;
   --tw-border-opacity: 1;
@@ -1510,6 +1515,7 @@ video {
 }
 
 .btn-small {
+  cursor: pointer;
   border-radius: 0.375rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1527,6 +1533,7 @@ video {
 
 .btn-goback {
   width: 100%;
+  cursor: pointer;
   border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;
@@ -1567,6 +1574,7 @@ video {
 
 .btn-alt-goback {
   width: 100%;
+  cursor: pointer;
   border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;

@@ -15,35 +15,35 @@
 /* Buttons */
 
 .btn-green {
-    @apply p-2 ml-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100;
+    @apply p-2 ml-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100 cursor-pointer;
 }
 
 .btn-red {
-    @apply p-2 ml-2 bg-rua-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-rua-100
+    @apply p-2 ml-2 bg-rua-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-rua-100 cursor-pointer;
 }
 
 .btn-yellow {
-    @apply py-3 px-4 text-lg tracking-wide text-center focus:outline-none focus:ring-2 bg-bui-100 text-black font-semibold leading-none border border-blue-100 hover:border-transparent hover:bg-white rounded-md
+    @apply py-3 px-4 text-lg tracking-wide text-center focus:outline-none focus:ring-2 bg-bui-100 text-black font-semibold leading-none border border-blue-100 hover:border-transparent hover:bg-white rounded-md cursor-pointer;
 }
 
 .btn-red-large {
-    @apply py-3 text-lg tracking-wide text-center focus:outline-none focus:ring-2 bg-rua-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-rua-100
+    @apply py-3 text-lg tracking-wide text-center focus:outline-none focus:ring-2 bg-rua-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-rua-100 cursor-pointer;
 }
 
 .btn-form {
-    @apply bg-bui-100 text-black font-heading border border-black hover:border-transparent hover:bg-white focus:ring-rua-100 w-full py-2 text-lg font-bold leading-none tracking-wide text-center rounded-md;
+    @apply bg-bui-100 text-black font-heading border border-black hover:border-transparent hover:bg-white focus:ring-rua-100 w-full py-2 text-lg font-bold leading-none tracking-wide text-center rounded-md cursor-pointer;
 }
 
 .btn-small {
-    @apply px-2 py-1 text-sm rounded-md focus:ring-2;
+    @apply px-2 py-1 text-sm rounded-md focus:ring-2 cursor-pointer;
 }
 
 .btn-goback {
-    @apply w-full p-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100 focus:outline-none;
+    @apply w-full p-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100 focus:outline-none cursor-pointer;
 }
 
 .btn-alt-goback {
-    @apply w-full p-2 bg-bui-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white focus:outline-none;
+    @apply w-full p-2 bg-bui-100 text-black font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white focus:outline-none cursor-pointer;
 }
 
 
