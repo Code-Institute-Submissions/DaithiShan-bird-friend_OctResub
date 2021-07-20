@@ -21,7 +21,7 @@ users = Blueprint('users', __name__)
 def login():
     """route for logging in users"""
     if current_user.is_authenticated:
-        return redirect(url_for('main.index', title="Bird Friend"))
+        return redirect(url_for('main.gallery', view='popular', animate='on'))
     form = LoginForm()
     if request.method == 'POST' and form.validate_on_submit():
         try:
@@ -40,7 +40,7 @@ def login():
         # If the user had pressed to go to a page behind a @login_required
         # Then redirect to that 'next' page, otherwise go to main gallery
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('main.index', title='Bird Friend')
+            next_page = url_for('main.gallery', view='popular', animate='on')
         return redirect(next_page)
     # 'GET' functioning
     return render_template('user/login.html', title="Login", form=form)
@@ -58,7 +58,7 @@ def register():
     # route for registering new users
     if current_user.is_authenticated:
         # redirect users to main page if they are already registered
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.gallery', view='popular', animate='on'))
     form = RegisterForm()
     # Customised register function from Code Institute Walkthrough Project
     if request.method == "POST" and form.validate_on_submit():
