@@ -120,7 +120,7 @@ def edit_profile(user_id):
     user = User.objects(pk=user_id).first()
     if user != current_user and current_user.username != 'admin':
         flash("You cannot edit someone else's profile!", "exclamation")
-        return redirect(url_for('main.gallery'))
+        return redirect(url_for('main.gallery', view='popular'))
     form = EditProfileForm()
     if form.validate_on_submit():
         user.username = form.username.data
@@ -143,7 +143,7 @@ def delete_account(user_id):
     user = User.objects(pk=user_id).first()
     if user != current_user and current_user.username != 'admin':
         flash("You cannot delete someone else's profile!", "exclamation")
-        return redirect(url_for('main.gallery', view='hot'))
+        return redirect(url_for('main.gallery', view='popular'))
     form = DeleteAccountForm()
     if form.validate_on_submit():
         # Complete password check before deletion (admin can enter admin

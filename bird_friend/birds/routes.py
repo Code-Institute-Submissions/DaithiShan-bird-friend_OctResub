@@ -51,7 +51,7 @@ def edit_bird(bird_id):
     bird = Bird.objects(pk=bird_id).first()
     if bird.uploader != current_user and current_user.username != 'admin':
         flash("You cannot edit someone else's photo!", "exclamation")
-        return redirect(url_for('main.gallery'))
+        return redirect(url_for('main.gallery', view='popular'))
     form = EditForm(birdtype=bird.birdtype.id)
     if form.validate_on_submit():
         # Update Birdtype and About section
@@ -80,7 +80,7 @@ def delete_bird(bird_id):
     bird = Bird.objects(pk=bird_id).first()
     if bird.uploader != current_user and current_user.username != 'admin':
         flash("You cannot delete someone else's photo!", "exclamation")
-        return redirect(url_for('main.gallery'))
+        return redirect(url_for('main.gallery', view='popular'))
     if request.method == 'POST':
         user = current_user.username
         # Delete bird's image from cloudinary database before deleting bird

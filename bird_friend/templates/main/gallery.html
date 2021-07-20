@@ -6,10 +6,21 @@
             <a href="#" class="font-title hover:underline focus:italic text-5xl text-gorm-100"> Popular</a>
             <a href="#" class="font-title hover:underline focus:italic text-5xl text-gorm-100">New</a>
         </div>
-        <div class="flex flex-col gap-6 p-4 lg:grid lg:grid-cols-2 lg:w-max lg:mx-auto {{'gallery-animate' if animate == 'on'}}">
-                {% for bird in birds %}
+        <div class="flex flex-col gap-6 p-4 lg:grid lg:grid-cols-2 lg:w-max lg:mx-auto">
+                {% for bird in birds.items %}
                     {% include 'bird/_bird_card.html' %}
                 {% endfor %}
+        </div>
+        <div class="flex flex-col gap-4">
+            {# Macro for creating navigation links #}
+                    <!-- source: https://github.com/MongoEngine/flask-mongoengine/blob/master/flask_mongoengine/pagination.py -->
+                    {% macro render_navigation(pagination, endpoint) %}
+                    {% include 'main/_pagination.html' %}
+                    {% endmacro %}
+                    {{ render_navigation(birds, 'main.gallery') }}
+                <div class="grid w-full max-w-sm py-6 mx-auto dash-border place-items-center">
+                    <a href="{{url_for('birds.upload_bird')}}" class="px-2 btn-yellow">Upload a new photo!</a>
+                </div>
         </div>
     </div>
     {% endblock %}

@@ -12,11 +12,24 @@ def index():
     """
     if current_user.is_authenticated:
         # redirect users to main page if they are already registered
-        return redirect(url_for('main.gallery'))
+        return redirect(url_for('main.gallery', view='popular'))
     return render_template('main/index.html')
 
 
-@main.route('/gallery')
-def gallery():
-    birds = Bird.objects()
-    return render_template('main/gallery.html', title="Gallery", birds=birds)
+@main.route('/gallery/<view>')
+def gallery(view):
+    """
+    Route for main gallery page with sections to
+    display birds sorted and filtered by:
+    Popular: most liked photos uploaded recently
+    New: most recently uploaded photos
+    """
+    page = request.args.get("page", 1, type=int)
+    if view == 'popular':
+        birds = Bird.objects.order_by('-likes').paginate(
+            page=page, per_page=6)
+    elif view == 'new':
+        birds = Bird.objects.order_by('-upload_date').paginate(
+            page=page, per_page=6)
+    return render_template('main/gallery.html', title="Gallery", birds=birds,
+                           view=view)
