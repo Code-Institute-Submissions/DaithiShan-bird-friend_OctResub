@@ -12,7 +12,7 @@ def index():
     """
     if current_user.is_authenticated:
         # redirect users to main page if they are already registered
-        return redirect(url_for('main.gallery', view='popular'))
+        return redirect(url_for('main.gallery', view='popular', animate='on'))
     return render_template('main/index.html')
 
 
@@ -26,10 +26,11 @@ def gallery(view):
     """
     page = request.args.get("page", 1, type=int)
     if view == 'popular':
-        birds = Bird.objects.order_by('-likes').paginate(
+        birds = Bird.objects.order_by('-likes', '-upload_date').paginate(
             page=page, per_page=6)
     elif view == 'new':
         birds = Bird.objects.order_by('-upload_date').paginate(
             page=page, per_page=6)
+    animate = request.args.get('animate')
     return render_template('main/gallery.html', title="Gallery", birds=birds,
-                           view=view)
+                           view=view, animate=animate)

@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center gap-4 text-center pagination">
+<div class="flex items-center justify-center gap-4 text-center pagination {{'fade-in-slow' if animate == 'on'}}">
     {% for page in pagination.iter_pages(left_edge=1, left_current=1, right_current=1, right_edge=1) %}
         <!-- Iterates over the page numbers in the pagination.  The four
         parameters control the thresholds how many numbers should be produced

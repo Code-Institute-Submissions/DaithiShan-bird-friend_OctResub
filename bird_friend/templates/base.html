@@ -28,7 +28,7 @@
     <div class="w-full">
         <header>
             <nav class="flex justify-between w-full p-4">
-                <a href="#">
+                <a href="{{url_for('main.index')}}">
                     <span class="font-roboto-slab font-semibold text-xl tracking-tight">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 375 375">
                             <style>
@@ -74,7 +74,7 @@
                         <a class="btn-green" href="{{ url_for('users.login') }}">Login</a>
                         <a class="btn-red" href="{{ url_for('users.register') }}">Register</a>
                     {% else %}
-                        <a class="btn-green" href="{{ url_for('main.gallery', view='popular') }}">Gallery</a>
+                        <a class="btn-green" href="{{ url_for('main.gallery', view='popular', animate='on') }}">Gallery</a>
                         <a class="btn-red" href="{{url_for('users.profile', username=current_user.username)}}">My Profile</a>
                     {% endif %}
                     </div>
@@ -119,7 +119,7 @@
             <nav style="border:1px solid blue" class="md:hidden bottom-0 w-full bg-liath-100 text-xs">
                 <ul class="flex justify-around items-center text-white text-center opacity-75 text-lg font-bold">
                     <li class="p-4 hover:bg-gray-500">
-                        <a href="/link">
+                        <a href="{{url_for('users.logout')}}">
                             <span class="text-xs md:text-sm">Logout</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -139,7 +139,7 @@
                         </a>
                     </li>
                     <li class="p-4 hover:bg-gray-500">
-                        <a href="/link">
+                        <a href="{{ url_for('birds.upload_bird') }}">
                             <span class="text-xs md:text-sm">Upload</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -149,7 +149,7 @@
                         </a>
                     </li>
                     <li class="p-4 hover:bg-gray-500">
-                        <a href="/link">
+                        <a href="{{url_for('users.profile', username=current_user.username)}}">
                             <span class="text-xs md:text-sm">Profile</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">

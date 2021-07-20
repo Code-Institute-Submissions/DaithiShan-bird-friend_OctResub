@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="bg-fixed bg-bottom bg-no-repeat bg-max-sm-contain">
+    <div class="pb-10 max-w-screen-lg mx-auto min-h-screen-less-nav ">
         <h1 class="title text-gorm-100">Gallery</h1>
         <div class="grid grid-cols-2 py-4 lg:py-2 place-items-center">
-            <a href="#" class="font-title hover:underline focus:italic text-5xl text-gorm-100"> Popular</a>
-            <a href="#" class="font-title hover:underline focus:italic text-5xl text-gorm-100">New</a>
+            <a href="{{url_for('main.gallery', view='popular', animate='on')}}" class="font-title hover:underline focus:italic text-5xl text-gorm-100 {{'active-view' if view == 'popular' else 'text-4xl text-gorm-100'}}"> Popular</a>
+            <a href="{{url_for('main.gallery', view='new', animate='on')}}" class="font-title hover:underline focus:italic text-5xl text-gorm-100 {{'active-view' if view == 'new' else 'text-4xl text-gorm-100'}}">New</a>
         </div>
-        <div class="flex flex-col gap-6 p-4 lg:grid lg:grid-cols-2 lg:w-max lg:mx-auto">
+        <div class="flex flex-col gap-6 p-4 lg:grid lg:grid-cols-2 lg:w-max lg:mx-auto {{'gallery-animate' if animate == 'on'}}">
                 {% for bird in birds.items %}
                     {% include 'bird/_bird_card.html' %}
                 {% endfor %}
@@ -18,7 +18,7 @@
                     {% include 'main/_pagination.html' %}
                     {% endmacro %}
                     {{ render_navigation(birds, 'main.gallery') }}
-                <div class="grid w-full max-w-sm py-6 mx-auto dash-border place-items-center">
+                <div class="grid w-full max-w-sm py-6 mx-auto dash-border place-items-center {'fade-in-slow' if animate == 'on'}}">
                     <a href="{{url_for('birds.upload_bird')}}" class="px-2 btn-yellow">Upload a new photo!</a>
                 </div>
         </div>
