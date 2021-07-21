@@ -1229,11 +1229,6 @@ video {
   color: rgba(255, 107, 107, var(--tw-text-opacity));
 }
 
-.text-bui-100{
-  --tw-text-opacity: 1;
-  color: rgba(255, 230, 109, var(--tw-text-opacity));
-}
-
 .text-liath-100{
   --tw-text-opacity: 1;
   color: rgba(80, 74, 92, var(--tw-text-opacity));
