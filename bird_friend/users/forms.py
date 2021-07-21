@@ -58,6 +58,27 @@ class RegisterForm(FlaskForm):
             raise ValidationError('Please use a different email.')
 
 
+class RequestPasswordForm(FlaskForm):
+    email = StringField(
+        'Your Email Address', validators=[
+            DataRequired(message="Please enter your email address"),
+            Email(message="Please enter a valid email address")])
+    submit = SubmitField('Submit')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password',
+                             validators=[DataRequired(
+                                 message="Please enter your new password")])
+    password2 = PasswordField(
+        'Repeat Password',
+        validators=[
+            DataRequired(message="Please double check password"),
+            EqualTo('password',
+                    message="The passwords don't match! Please try again")])
+    submit = SubmitField('Submit')
+
+
 class EditProfileForm(FlaskForm):
     username = StringField('Username',
                            validators=[
