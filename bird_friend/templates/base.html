@@ -65,12 +65,13 @@
                         <div class="hidden md:flex">
                             <a class="block md:text-black mr-4" href="{{url_for('users.logout')}}">Logout</a>
                             <a class="block md:text-black mr-4" href="{{ url_for('birds.upload_bird') }}">Upload</a>
-                            <a class="block md:text-black mr-4" href="#">Contact</a>
+                            <a class="block md:text-black mr-4" href="{{ url_for('main.contact') }}">Contact</a>
                         </div>
                     {% endif %}
                 <div class="flex text-sm" v-else>
                     <!-- Login & Register buttons vs My Profile depending on whether user is logged in-->
-                    {% if current_user.is_anonymous %}   
+                    {% if current_user.is_anonymous %}
+                        <a class="btn-yellow-nav" href="{{ url_for('main.contact') }}">Contact</a>
                         <a class="btn-green" href="{{ url_for('users.login') }}">Login</a>
                         <a class="btn-red" href="{{ url_for('users.register') }}">Register</a>
                     {% else %}
@@ -129,7 +130,7 @@
                         </a>
                     </li>
                     <li class="p-4 hover:bg-gray-500">
-                        <a href="/link">
+                        <a href="{{ url_for('main.contact') }}">
                             <span class="text-xs md:text-sm">Contact</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">

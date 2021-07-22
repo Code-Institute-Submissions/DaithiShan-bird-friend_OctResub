@@ -11,6 +11,7 @@ login = LoginManager()
 login.login_view = 'users.login'
 login.login_message = 'You must be logged in to do that!'
 login.login_message_category = 'exclamation'
+mail = Mail()
 
 # __init__.py inspired by Corey Schafer YouTube Series on Flask Apps and Blueprints 
 # https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog/11-Blueprints
@@ -21,6 +22,7 @@ def create_app(config_class=Config):
 
     db.init_app(app)
     login.init_app(app)
+    mail.init_app(app)
 
     from bird_friend.users.routes import users
     from bird_friend.birds.routes import birds

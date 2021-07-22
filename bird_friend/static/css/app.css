@@ -29,7 +29,11 @@
 }
 
 .btn-yellow {
-    @apply py-3 px-4 text-lg tracking-wide text-center focus:outline-none focus:ring-2 bg-bui-100 text-black font-semibold leading-none border border-blue-100 hover:border-transparent hover:bg-white rounded-md cursor-pointer;
+    @apply py-3 px-4 text-lg tracking-wide text-center focus:outline-none focus:ring-2 bg-bui-100 text-black font-semibold leading-none border-blue-100 hover:border-transparent hover:bg-white rounded-md cursor-pointer;
+}
+
+.btn-yellow-nav {
+    @apply p-2 ml-2 bg-bui-100 text-black font-semibold leading-none border-blue-100 hover:border-transparent hover:bg-white rounded-md cursor-pointer;
 }
 
 .btn-red-large {

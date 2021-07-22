@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!-- CONTACT FORM -->
+{% block content %}
+<!-- Add contional height to offset bottom nav bar if user is logged in -->
+<div
+    class="relative bg-bottom bg-no-repeat md:bg-right-bottom {{'min-h-screen-less-both-nav' if current_user.is_authenticated else 'min-h-screen-less-nav'}} md:min-h-screen-less-nav bg-dog3 lg:bg-50%">
+    <h1 class="title text-gorm-100 ">Contact Us</h1>
+    <form action="{{url_for('main.contact')}}" method="POST"
+        class="form-container"
+        novalidate>
+        {{ form.hidden_tag()}}
+        <fieldset class="pb-2">
+            {{form.email.label}}
+            {{form.email(class_='form-input')}}
+            {% for error in form.email.errors %}
+            <span class="text-rua-100 "> {{error}} </span>
+            {% endfor %}
+        </fieldset>
+        <fieldset class="pb-2">
+            {{form.message.label}}
+            {{form.message(class_='form-input h-32 lg:h-40 lg:mb-5')}}
+            {% for error in form.message.errors %}
+            <span class="text-rua-100 "> {{error}} </span>
+            {% endfor %}
+        </fieldset>
+        <fieldset class="pb-2">
+            {{form.submit(class_='btn-form')}}
+        </fieldset>
+    </form>
+    <div class="flex flex-col items-center gap-4 mt-7 mb-4 text-xl font-bold text-center">
+        <div>
+            <input type="button" class="btn-goback" value="Go Back" onclick="history.back(-1)" />
+        </div>
+    </div>
+</div>
+{% endblock content %}

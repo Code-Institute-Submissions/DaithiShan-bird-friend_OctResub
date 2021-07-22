@@ -1,0 +1,7 @@
+New message from Bird Friend contact form:
+
+From: {{email}}
+
+Message:
+
+{{msg}}
