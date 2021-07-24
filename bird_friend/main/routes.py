@@ -28,7 +28,7 @@ def gallery(view):
     """
     page = request.args.get("page", 1, type=int)
     if view == 'popular':
-        birds = Bird.objects.order_by('-likes').paginate(
+        birds = Bird.objects.order_by('-faves').paginate(
             page=page, per_page=6)
     elif view == 'new':
         birds = Bird.objects.order_by('-upload_date').paginate(
