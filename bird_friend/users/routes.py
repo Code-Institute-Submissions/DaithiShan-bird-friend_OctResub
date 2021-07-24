@@ -35,7 +35,7 @@ def login():
             return redirect(url_for('users.login'))
         # else login the user and redirect
         login_user(user)
-        flash(f'Welcome back, {user.username}!')
+        flash(f'Welcome back, {user.username}!', 'check-circle')
         next_page = request.args.get('next')
         # If the user had pressed to go to a page behind a @login_required
         # Then redirect to that 'next' page, otherwise go to main gallery
@@ -176,17 +176,18 @@ def favourite(bird_id):
     user's favourites
     """
     bird = Bird.objects(pk=bird_id).first_or_404()
-    # Remove from favourites if already favourites
+    # Remove from favourites if already favourited
     if current_user in bird.faved_by:
         bird.update(pull__faved_by=current_user.id)
         bird.update(dec__favourites=1)
     elif bird.uploader == current_user:
-        flash(f"You can't favourite your own photo, but it's gorgeous!", 'heart')
+        flash(f"You can't favourite your own photo, but it's gorgeous!", 'exclamation')
         return request.referrer
     # else add to favourites
     else:
         bird.update(push__faved_by=current_user.id)
-        flash(f"{bird.nickname} added to your favourite photos!", 'heart')
+        bird.update(inc__favourites=1)
+        flash(f"{bird.nickname} added to your favourite photos!", 'check-circle')
 
     # Return to previous page
     return redirect(request.referrer)
