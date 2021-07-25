@@ -28,7 +28,7 @@
             <a href="{{url_for('users.register')}}" class="w-40 btn-red-large">Register Now</a>
             <div>
                 <p class="text-liath-100 ">Need something else?</p>
-                <a href="/contact" class="text-rua-100 hover:underline">Contact us</a>
+                <a href="{{ url_for('main.contact') }}" class="text-rua-100 hover:underline">Contact us</a>
             </div>
             <div>
                 <input type="button" class="btn-goback" value="Go Back" onclick="history.back(-1)" />
