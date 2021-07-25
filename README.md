@@ -1,8 +1,8 @@
 # Bird Friend
 
-![AmIResponsive Mockup Screenshot](#)
+![AmIResponsive Mockup Screenshot](docs/readme-files/preview.png "AmIResponsive Mockup Screenshot")
 
-## Project Outline
+## Project Summary
 
 - [Bird Friend](#) is a photo sharing web application. Users can create, search, and edit photo profiles for birds they've spotted, and comment or like photo profiles from other users.
 - All users, even those non-registered, can browse through uploaded photos of birds and read other people's comments to get a sense of the community.
@@ -362,8 +362,8 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 -  Clear distinction between 'Popular' and 'New' depending on which page the user is on
 -  The sub title navigation link is highlighted yellow for the page that the user is on.
 -  Each bird photo card on the gallery page contains links to:
-	- Like the bird
-	- See the main photo page of the bird with larger picture, more info and comments.
+	- Favourite the bird
+	- See the main photo page of the bird with larger picture, and more info.
 	- Link to the person who uploaded the bird's photo (if user is not also the uploader)
 	- Links to delete or edit the bird, if user is the uploader 
 
@@ -373,19 +373,16 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 - There are two different navigations, depending on whether you are on mobile or tablet+
 - On mobile there is a bottom navigation bar, making it easy to access the main links with your thumb (visible once the user has signed in)
-- The top mobile navigation simply consists of a 'My Profile' button (or Login/Register buttons if a user has not yet signed in)
-![bottom nav image](#)
+- The top mobile navigation simply consists of 'Contact', 'Login' and 'Register' if the user isn't signed in yet. 
 - On desktop, the links that are present in the mobile bottom navigation are instead added alongside the 'My Profile' button in the top navigation bar
-![top nav only](#)
 
 #### Contact page.
 
-- If user is not logged in:
-	- Form has fillable Name/Email/Message fields
-- If user is logged in
-	- Form has read-only, pre-filled username/email fields for current user
-	- Has fillable message form
-- All messages sent from contact form send messages to site developer's email    
+- The contact form is a very simple and clean form
+- All visitors need to do is enter their email and their request
+- A flash message appears on successful submission, and the form clears of their data
+- The form uses Gmail's SMTP to send the developer an email with the form contents
+- There are links to this page on Registration, Login and Bird Upload templates 
 
 ### User Pages
 
@@ -551,6 +548,32 @@ This application was built on the Flask framework, using Flask Blueprints to spl
   - App configuration settings are contained within ``` config.py ```
   - Inside the  ```__init__.py ``` file, the app is created as a [Flask application factory](https://flask.palletsprojects.com/en/1.1.x/patterns/appfactories/).
   - Then in the ``` app.py ``` file, the application factory is imported and the function is the invoked ie. ``` app = create_app() ``` which creates the application.
+
+
+**Gallery Ranking System** <br>
+The primary use of this app is photo sharing, and therefore the photo gallery is an important feature. As such it is ranked in two different ways; firstly, by popularity and secondly by chronological order.
+
+- The feature enabling users to favourite photos was created before the gallery view of 'Popular' was built, as is logical.
+
+- However, this meant that when building the favourite feature, the developer forgot to add an increment function on the back end to the feature.
+
+- Photos were still displaying the total amount of favourites they had received, thanks to the existence of a 'faved_by' field in the data base.
+
+- However, this caused a bug where photos were displaying the total amount of favourites they had received, but not ranking in order of that number.
+
+![Ranking Bug Screenshot 1](docs/readme-files/ranking-bug-screenshot-1.png "Ranking Bug Screenshot 1")
+
+- It took a long time for the developer to figure out that while the number of favourites was visible as "faved_by", the numeric data wasn't being stored in the Bird "favourites" data field being used in the code for ranking.
+
+- This was because an increment function was missing from the user feature, which needed to exist to increment the Bird data field "favourites" by one each time a user favourited a photo.
+
+```
+    bird.update(push__faved_by=current_user.id)
+    bird.update(inc__favourites=1)
+    flash(f"{bird.nickname} added to your favourite photos!", 'check-circle')
+```
+
+![Ranking Bug Screenshot 2](docs/readme-files/ranking-bug-screenshot-2.png "Ranking Bug Screenshot 2")
 
 <div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
