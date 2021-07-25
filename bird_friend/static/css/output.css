@@ -206,6 +206,7 @@ Correct the inability to style clickable types in iOS and Safari.
 
 button,
 [type='button'],
+[type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
 }
@@ -602,12 +603,20 @@ video {
   margin-right: auto;
 }
 
+.mt-3{
+  margin-top: 0.75rem;
+}
+
 .mt-4{
   margin-top: 1rem;
 }
 
 .mt-7{
   margin-top: 1.75rem;
+}
+
+.mt-8{
+  margin-top: 2rem;
 }
 
 .mt-10{
@@ -632,6 +641,10 @@ video {
 
 .mb-4{
   margin-bottom: 1rem;
+}
+
+.mb-5{
+  margin-bottom: 1.25rem;
 }
 
 .block{
@@ -1232,6 +1245,11 @@ video {
 .text-liath-100{
   --tw-text-opacity: 1;
   color: rgba(80, 74, 92, var(--tw-text-opacity));
+}
+
+.hover\:text-glas-100:hover{
+  --tw-text-opacity: 1;
+  color: rgba(78, 205, 196, var(--tw-text-opacity));
 }
 
 .focus\:text-glas-100:focus{
