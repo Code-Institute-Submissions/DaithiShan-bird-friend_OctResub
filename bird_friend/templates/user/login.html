@@ -23,12 +23,18 @@
                     {{form.submit(class_='btn-form')}}
                 </fieldset>
         </form>
-        <div class="flex flex-col items-center gap-4 mt-7 mb-4 text-xl font-bold text-center">
-            <p class="text-liath-100">Not registered yet?</p>
-            <a href="{{url_for('users.register')}}" class="w-40 btn-red-large">Register Now</a>
+        <div class="flex flex-col items-center gap-6 mt-8 mb-5 text-xl font-bold text-center">
+            <div>
+                <p class="text-liath-100 ">Forgot your password?</p>
+                    <a href="{{url_for('users.reset_password_request')}}" class="text-glas-100 hover:underline hover:text-glas-100 ">Reset it now</a>
+            </div>
+            <div>
+                <p class="text-liath-100">Not registered yet?</p>
+                <a href="{{url_for('users.register')}}" class="text-rua-100 hover:underline">Register Now</a>
+            </div>
             <div>
                 <p class="text-liath-100 ">Need something else?</p>
-                <a href="{{ url_for('main.contact') }}" class="text-rua-100 hover:underline">Contact us</a>
+                <a href="{{ url_for('main.contact') }}" class="text-gorm-100 hover:underline">Contact us</a>
             </div>
             <div>
                 <input type="button" class="btn-goback" value="Go Back" onclick="history.back(-1)" />

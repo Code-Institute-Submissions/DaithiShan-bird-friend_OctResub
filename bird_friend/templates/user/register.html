@@ -47,12 +47,14 @@
         </fieldset>
     </form>
     <!-- Alternative User Options -->
-    <div class="flex flex-col items-center gap-4 mt-7 mb-4 text-xl font-bold text-center">
-        <p class="text-liath-100 ">Already a member?</p>
-        <a href="{{ url_for('users.login') }}" class="w-40 btn-red-large">Log In</a>
+    <div class="flex flex-col items-center gap-6 mt-8 mb-5 text-xl font-bold text-center">
+        <div>
+            <p class="text-liath-100 ">Already a member?</p>
+            <a href="{{ url_for('users.login') }}" class="text-rua-100 hover:underline">Log In</a>
+        </div>
         <div>
             <p class="text-liath-100 ">Need something else?</p>
-            <a href="{{ url_for('main.contact') }}" class="text-rua-100 hover:underline">Contact us</a>
+            <a href="{{ url_for('main.contact') }}" class="text-gorm-100 hover:underline">Contact us</a>
         </div>
         <div>
             <input type="button" class="btn-goback" value="Go Back" onclick="history.back(-1)" />
