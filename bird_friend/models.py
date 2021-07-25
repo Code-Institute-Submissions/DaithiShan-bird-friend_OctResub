@@ -7,6 +7,8 @@ from bird_friend import login
 import datetime
 from time import time
 from cloudinary import uploader
+import jwt
+import json
 import os
 
 # App models from student project - 
@@ -23,6 +25,28 @@ class User(UserMixin, db.Document):
     
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+    
+    # Reset password code courtesy of Miguel Grinberg:
+    # https://blog.miguelgrinberg.com/post/
+    def get_reset_password_token(self, expires_in=600):
+        # Return a time limited JWT token for
+        # emailing to users requesting reset
+        id = JSONEncoder().encode(self.id)
+        return jwt.encode(
+            {'reset_password': id, 'exp': time() + expires_in},
+            current_app.config['SECRET_KEY'], algorithm='HS256')
+
+    @staticmethod
+    def verify_reset_password_token(token):
+        # receive returned JWT token following user's clicking link in password
+        # Verify and return correct user
+        try:
+            id = json.loads(jwt.decode(token, current_app.config['SECRET_KEY'],
+                                       algorithms=['HS256'])['reset_password'],
+                            object_hook=decoder)
+        except ValueError:
+            return
+        return User.objects(pk=id).first()
     
     def set_avatar(self, img_url):
         self.img_url = img_url

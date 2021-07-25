@@ -76,6 +76,41 @@ def register():
     return render_template('user/register.html', title="Register", form=form)
 
 
+@users.route('/reset_password_request', methods=['GET', 'POST'])
+def reset_password_request():
+    """Route for requesting a password Reset"""
+    if current_user.is_authenticated:
+        return redirect(url_for('main.gallery', view='popular'))
+    form = RequestPasswordForm()
+    if form.validate_on_submit():
+        user = User.objects(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash("You've got an email with instructions to reset your password","check-circle")
+        flash('(Remember to check your spam folder!)', 'comment')
+        return redirect(url_for('users.login'))
+    return render_template('user/reset_password_request.html',
+                           title='Reset Password', form=form)
+
+
+@users.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    """Password reset form, if request and
+    jwt token signing was successful"""
+    if current_user.is_authenticated:
+        return redirect(url_for('main.gallery', view='popular'))
+    user = User.verify_reset_password_token(token)
+    if not user:
+        return redirect(url_for('users.login'))
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user.set_password(form.password.data)
+        user.save()
+        flash('Your password has been reset.', 'check-circle')
+        return redirect(url_for('users.login'))
+    return render_template('user/reset_password.html', token=token, form=form)
+
+
 @users.route('/profile/<username>')
 def profile(username):
     """
