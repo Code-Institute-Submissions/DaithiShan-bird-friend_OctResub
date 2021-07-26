@@ -1,5 +1,4 @@
 import os
-import env
 from bird_friend import create_app, db
 from bird_friend.models import User, Birdtype
 
