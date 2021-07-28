@@ -43,8 +43,7 @@ class EditForm(FlaskForm):
                                           "No space for the full Latin name, sorry!")])
     about = TextAreaField("Tell us about this photo!",
                           validators=[
-                              Length(max=250,
-                                     message="About section has a max "
-                                             "character "
-                                             "limit of 300!")])
+                              Length(
+                                  max=250,
+                                  message="About section has a max character limit of 300!")])
     submit = SubmitField('Submit')
