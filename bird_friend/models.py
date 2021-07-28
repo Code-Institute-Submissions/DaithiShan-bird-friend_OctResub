@@ -4,6 +4,7 @@ from mongoengine import CASCADE
 from flask_login import UserMixin
 from flask import current_app
 from bird_friend import login
+from bird_friend.main.utils import JSONEncoder, decoder
 import datetime
 from time import time
 from cloudinary import uploader
