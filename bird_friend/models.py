@@ -13,7 +13,8 @@ import json
 import os
 
 # App models from student project - 
-#https://github.com/cjcon90/hot-dogz/blob/main/hot_dogz/users/forms.py  
+# https://github.com/cjcon90/hot-dogz/blob/main/hot_dogz/users/forms.py  
+
 
 class User(UserMixin, db.Document):
     username = db.StringField(max_length=12, unique=True, required=True)
@@ -77,7 +78,8 @@ class Bird(db.Document):
     upload_date = db.DateTimeField(default=datetime.datetime.utcnow)
 
     def __repr__(self):
-        return f"Bird Type('{self.birdtype_name}', uploader = {self.uploader.username})"
+        return f"Bird Type('{self.birdtype_name}'" \
+               f"uploader = {self.uploader.username})"
 
     def set_bird_image(self, bird_img, user, pk):
         # Get an individual folder for each user's photo uploads
