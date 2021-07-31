@@ -116,7 +116,7 @@
         <!-- Only visible on mobile and if user is signed in -->
         {% if current_user.is_authenticated %}
         <div class="bottomNav fixed bottom-0 w-full">
-            <nav style="border:1px solid blue" class="md:hidden bottom-0 w-full bg-liath-100 text-xs">
+            <nav class="md:hidden bottom-0 w-full bg-liath-100 text-xs">
                 <ul class="flex justify-around items-center text-white text-center opacity-75 text-lg font-bold">
                     <li class="p-4 hover:bg-liath-100">
                         <a href="{{url_for('users.logout')}}">
