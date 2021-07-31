@@ -5,8 +5,10 @@ from flask_login.utils import login_required
 from mongoengine.errors import DoesNotExist
 from bird_friend import db
 from bird_friend.users.forms import (
-    RegisterForm, LoginForm, EditProfileForm, DeleteAccountForm)
+    RegisterForm, LoginForm, EditProfileForm, DeleteAccountForm,
+    RequestPasswordForm, ResetPasswordForm)
 from bird_friend.models import User, Bird
+from bird_friend.users.utils import send_password_reset_email
 from flask_login import current_user, login_user, logout_user
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
