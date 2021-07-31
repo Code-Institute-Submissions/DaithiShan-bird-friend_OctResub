@@ -115,10 +115,10 @@
         <!-- MOBILE NAVIGATION BAR -->
         <!-- Only visible on mobile and if user is signed in -->
         {% if current_user.is_authenticated %}
-        <div class="bottomNav fixed bottom-0 w-full">
+        <div class="fixed bottom-0 w-full">
             <nav class="md:hidden bottom-0 w-full bg-liath-100 text-xs">
-                <ul class="flex justify-around items-center text-white text-center opacity-75 text-lg font-bold">
-                    <li class="p-4 hover:bg-liath-100">
+                <ul class="flex justify-around items-center text-white text-center opacity-75 text-xs font-bold">
+                    <li class="p-1 hover:bg-liath-100">
                         <a href="{{url_for('users.logout')}}">
                             <span class="text-xs md:text-sm">Logout</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
@@ -128,7 +128,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="p-4 hover:bg-liath-100">
+                    <li class="p-1 hover:bg-liath-100">
                         <a href="{{ url_for('main.contact') }}">
                             <span class="text-xs md:text-sm">Contact</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
@@ -138,7 +138,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="p-4 hover:bg-liath-100">
+                    <li class="p-1 hover:bg-liath-100">
                         <a href="{{ url_for('birds.upload_bird') }}">
                             <span class="text-xs md:text-sm">Upload</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
@@ -148,7 +148,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="p-4 hover:bg-liath-100">
+                    <li class="p-1 hover:bg-liath-100">
                         <a href="{{url_for('users.profile', username=current_user.username)}}">
                             <span class="text-xs md:text-sm">Profile</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none"
