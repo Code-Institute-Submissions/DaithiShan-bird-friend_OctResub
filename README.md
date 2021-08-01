@@ -4,7 +4,7 @@
 
 ## Project Summary
 
-- [Bird Friend](#) is a photo sharing web application. Users can create, search, and edit photo profiles for birds they've spotted, and comment or like photo profiles from other users.
+- [Bird Friend](#) is a photo sharing web application. Users can create, edit and delete photo profiles for birds they've spotted, and comment or favourite photo profiles from other users.
 - All users, even those non-registered, can browse through uploaded photos of birds and read other people's comments to get a sense of the community.
 - After browsing, users who want to get more involved by commenting or uploading their own photos will receive prompts to register to gain this functionality.
 - This creates a deeper link between the user and the application, allowing the site developer to build a sense of community.
@@ -14,11 +14,11 @@
 ## Project Goals
 
 - To buid a fun community around casual bird spotting in cities and the countryside, as many people don't really take the time to stop and really see birds in the same way as other wildlife ; dogs, cats, foxes, deer.
-- To drive camera sales on behalf of a 3rd party through native advertisement, as a way of making the site and community more sustainable for the site developer.
+- To build a website with high traffic potentially interested in camera and outdoor gear purchases, so as to make the site self-funding through display advertising.
 
 ## Live project
 
-**[View the live project here](#)**
+**[View the live project here](http://bird-friend.herokuapp.com/)**
 
 <span id="top"></span>
 
@@ -87,12 +87,12 @@ The returning user is looking for:
 
 The frequent user is looking for:
 - A way to measure the popularity of their own photo uploads.
-- A way of taking sharper, higher quality photos to raise that popularity, once measurable.
+- A way of expressing which of the other users' photos they appreciate most.
 
 #### Site Developer Goals
 The Developer is looking to:
 - Create an inviting, community-drive application to share their passion for birds.
-- Develop a small income from advertising 3rd party cameras so the site can pay for itself.
+- Develop a small income by creating a high traffic website attractive for display advertising for camera and outdoor gear markets as an example.
 
 ### User Stories
 
@@ -100,33 +100,31 @@ The Developer is looking to:
 
   - I want to a colourful, vibrant landing page that grabs me.
   - I'd like to see all the site content, and some of the features, before registration.
-  - I'll only register if it's the only way to comment, like and upload photos.
+  - I'll only register if it's the only way to like and upload photos.
   - I'd like to eventually add my photos to the site, but doing so must be simple.
 
 - Repeat users
 
   - I'd like a nice profile page, easy login, and a quick fix if I forget my password.
   - I'd like my favorite photos logged to my profile.
-  - I'd like to be able to comment on other people's uploads.
-  - I want to be able to edit/delete my uploads, and comments.
+  - I'd like to be able to see the most popular photos and the newest.
+  - I want to be able to edit/delete my uploads, and profile.
 
 - Frequent users
 
     - I want to be able to see how many people have liked any of my photos.
-    - I'd like to see what camera is responsible for the highest quality images.
-    - I want uploads ranked in terms of popularity, as I grow more invested.
+    - I'd like to be able to see all the photos I've liked, and those I've uploaded.
     - I want to be able to delete my account if ever I feel frustrated, or finished with it.
 
 -  All Users
 
-   - I'd like to feedback on all my actions on this site.
+   - I'd like to get visual feedback on all my actions on this site.
    - I'd like to be able to contact the admin for any complaints/inappropriate content.
-   - I'd prefer endless scrolling as a feature over pagination
 
 - Site Developer
 
   - I want people to care more about birds, which seem invisible or meaningless to many others.
-  - I want the site to pay for itself through 3rd party camera sales, to be sustainable.
+  - I want the site to grow enough to eventually pay for itself through display advertising.
   - I want the ability as admin to delete/edit any content that is inappropriate.
 
 <div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
@@ -147,7 +145,7 @@ Broken into three categories, the app will focus on the following target audienc
 - **Persona:**
      - New interest in birds
      - Like taking photos casually
-     - Enjoy typical social features when sharing photos, e.g. likes & comments
+     - Enjoy typical social features when sharing photos, e.g. likes & favourites
 
 - **Psychographics:**
      - Personality & Attitudes:
@@ -164,29 +162,23 @@ The website needs to enable the **user** to:
 
 - Register/login to an account
 
-- Search Bird database by:
-    - Bird Type
-    - Camera Type
-    - Bird Nickname (frequent users)
-
 - View Photo Gallery with the following information:
 
     - Bird Type
-    - Camera Type
     - Bird Nickname
     - Uploader Name
-    - Likes
+    - Favourites
 
 - Upload and edit their own Birds
 
-- Like and view their favourite Birds from other users
+- Favourite and view their favourited Birds
 
 - Get in contact with site owner
 
 The website needs to enable the **site developer** to:
 - Provide a community-driven photo-sharing app around birds
-- Drive 3rd party camera sales from users
 - Edit/delete inappropriate content
+- Eventually drive income through display advertising
 
 With these goals in mind, a strategy table was created to determine the trade-off between importance and viability with the following results:
 
@@ -198,16 +190,16 @@ With these goals in mind, a strategy table was created to determine the trade-of
 <strong>2. <u>Scope</u></strong>
 
 A scope was defined in order to clearly identify what needed to be done in order to align features with the strategy previously defined. This was broken into two categories:
+
 - **Content Requirements**
      - The user will be looking for:
      - Fun, colorful landing page.
      - Easy navigation.
-     - Searchable photo Gallery with following info:
+     - Photo Gallery with following info:
         - Bird Type
-        - Camera Type
         - Bird Nickname
         - Uploader Name
-        - Liked By
+        - Favourited By
      - Simple registration process
      - Customisable User Profile
         - Custom User Name/Password
@@ -223,17 +215,14 @@ A scope was defined in order to clearly identify what needed to be done in order
             - Upload their own photos
             - Save favourite photos
         - Navigate to the Photo Gallery:
-            - Search by Bird Type, Camera Type or Name (for frequent visitors)
-            - My Photos Page
+            - Sort the photos into either Popular or New
             - My Favourites Page
         - Create Photo Uploads:
             - Bird Type
-            - Camera Type
             - Bird Nickname
             - Uploader Name
         - Interact with other users
-            - Like other users photos
-            - Comment on other users photos
+            - Favourite other users photos
         - Get in contact with the Developer
 
 <div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
@@ -300,27 +289,20 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 ## Database Models and Schema
 
 ### Database Models
-- The database consists of four collections - User, Bird, Type, Comment
+- The database consists of four collections - User, Bird, Type, Favourite
 - User
 	- This contains user's username, email address, hashed password string and avatar selection
 	- The user ID acts as a reference field in various other collections
 - Bird
-	- This is where users enter; Bird Type, Camera Type, Location spotted and give a Name (optional).
+	- This is where users enter; Bird Type, and give a Nickname and About story.
 	- User Id is not entered but is automatically set to the user that uploads the Bird object
-	- liked_by is a one to many field automatically referencing IDs of Users that have liked a Bird object
+	- faved_by is a one to many field automatically referencing IDs of Users that have favourited a Bird object
 	- img_url is the users uploaded image of the bird
 		- img_url_card is the above image with transformations setting height to 350px, width to 525px, low quality on the image and automatically focusing on key part of image using cloudinary API
 		- img_card_thumb is also optimized to lower quality and limited to a width of 500px (height remains at auto) 
 	- upload_date is an automatically added datetime item
 - Bird Type
 	- This acts as a reference field for the Bird collection and contains a lists of types that users can choose from when uploading their Bird
-- Camera Type
-	- This acts as a reference field for the Camera collection and contains a lists of types that users can choose from when uploading their Bird
-- Comment
-	- author references the User.id that created the comment
-	- bird references the Bird.id of the bird to which the comment is attached
-	- content is text input of comment
-    - datetime is another automatically added datetime item
 
 ### Database Schema
 
@@ -405,10 +387,10 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 - Displays user's chosen profile picture
 - Displays any bird photos user has uploaded
-- Displays any birds this user has liked / favorited
+- Displays any birds this user has favorited
 - If user views their own profile, they see links to:
 	- Change their profile picture
-		- Here you can choose to upload an image file from your computer
+		- Here you can choose another avatar from the gallery
 	- Edit your account
 		- Here you can change your username or email 
 	- Delete your account 
@@ -420,28 +402,17 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 - Displays a larger thumbnail photo of the bird, without cropping to card aspect ratio
 	- This image features a link to see original, user upload full-size image
-- Displays photo info: Bird Type, Camera Type, Bird Nickname, Uploader, Liked By and the Photo Backstory.
+- Displays photo info: Bird Type, Bird Nickname, Uploader, About and Favourited By.
 - If current user is photo's uploader, then displays buttons to edit or delete photo of bird
 	- Edit Bird Photo will load a form with any information pre-filled
 	- Uploading a new photo will replace the previous Photo in Bird Friend's cloudinary database
 	- Delete photo will ask user's to confirm before deletion
 
-- Otherwise displays text prompting current user to leave a comment   
-
-#### Comments
-
-- Displays avatar of comment author and name, both of which act as a link to their user page
-- Displays comment content and date comment was added
-- If current user is author, it displays edit and delete comment buttons
-	- Edit comment will navigate to a text entry, pre-filled witih the comment user is editing
-	- Delete comment will display the comment text as a blockquote and ask user to confirm delete
-
 ### Admin
 
-- There is an admin user account which has permissions to delete or edit any user, photo or comment on the site
+- There is an admin user account which has permissions to delete or edit any user or bird photo on the site
 - A preview of the admin account on the gallery home page will show edit/delete options for all uploaded photos of birds, which are normally hidden unless the uploader is the current user:
 ![admin_view](#)
-- Links for deleting/editing comments and users are also shown in this way for admins.
 
 ### Custom Error Pages
 
@@ -452,6 +423,11 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 	- 500 - server error.
 
 ### Features left to Implement.
+
+- Search Bird database by:
+  - Bird Type
+  - Bird Nickname
+  - Uploader name
 
 <div class="text-align:right"><a style="text-align:right" href="#top">Return to index </a></div>
 
