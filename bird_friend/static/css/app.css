@@ -49,7 +49,7 @@
 }
 
 .btn-goback {
-    @apply w-full p-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100 focus:outline-none cursor-pointer;
+    @apply w-full p-2 mb-2 bg-glas-100 text-white font-semibold leading-none border border-blue-100 rounded hover:border-transparent hover:bg-white hover:text-glas-100 focus:outline-none cursor-pointer;
 }
 
 .btn-alt-goback {
@@ -85,9 +85,7 @@
 .bird {
     @apply bg-green-500;
 }
-.thumbs-up {
-    @apply bg-blue-500;
-}
+
 .like {
     @apply bg-gorm-100;
 }
