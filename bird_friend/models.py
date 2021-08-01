@@ -12,8 +12,7 @@ import jwt
 import json
 import os
 
-# App models from student project - 
-# https://github.com/cjcon90/hot-dogz/blob/main/hot_dogz/users/forms.py  
+# App models from student project https://github.com/cjcon90/hot-dogz/blob/main/hot_dogz/users/forms.py  
 
 
 class User(UserMixin, db.Document):

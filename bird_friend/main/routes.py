@@ -7,6 +7,7 @@ from bird_friend.main.utils import send_email
 
 main = Blueprint('main', __name__)
 
+
 @main.route('/')
 def index():
     """Route for visitors not yet logged in or
@@ -55,4 +56,3 @@ def contact():
         return redirect(url_for('main.gallery', view='popular'))
     elif request.method == 'GET':
         return render_template('main/contact.html', form=form, title="Contact Us")
-

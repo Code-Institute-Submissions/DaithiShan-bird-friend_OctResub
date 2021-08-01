@@ -16,6 +16,7 @@ mail = Mail()
 # __init__.py inspired by Corey Schafer YouTube Series on Flask Apps and Blueprints 
 # https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog/11-Blueprints
 
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -27,9 +28,11 @@ def create_app(config_class=Config):
     from bird_friend.users.routes import users
     from bird_friend.birds.routes import birds
     from bird_friend.main.routes import main
+    from bird_friend.errors.handlers import errors
+
     app.register_blueprint(users)
     app.register_blueprint(birds)
     app.register_blueprint(main)
+    app.register_blueprint(errors)
 
     return app
-    
