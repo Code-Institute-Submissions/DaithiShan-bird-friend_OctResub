@@ -4,7 +4,7 @@
 
 ## Project Summary
 
-- [Bird Friend](#) is a photo sharing web application. Users can create, edit and delete photo profiles for birds they've spotted, and comment or favourite photo profiles from other users.
+- [Bird Friend](https://bird-friend.herokuapp.com/) is a photo sharing web application. Users can create, edit and delete photo profiles for birds they've spotted, and comment or favourite photo profiles from other users.
 - All users, even those non-registered, can browse through uploaded photos of birds and read other people's comments to get a sense of the community.
 - After browsing, users who want to get more involved by commenting or uploading their own photos will receive prompts to register to gain this functionality.
 - This creates a deeper link between the user and the application, allowing the site developer to build a sense of community.
@@ -18,7 +18,7 @@
 
 ## Live project
 
-**[View the live project here](http://bird-friend.herokuapp.com/)**
+**[View the live project here](https://bird-friend.herokuapp.com/)**
 
 <span id="top"></span>
 
@@ -305,7 +305,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 ### Database Schema
 
-![Database Schema](docs/readme-files/db-schema.jpg "Database Schema")
+![Database Schema](docs/readme-files/db-schema.png "Database Schema")
 
 ### MongoDb
 
@@ -411,7 +411,7 @@ Wireframe mockups were created in a [Figma Workspace](https://www.figma.com/file
 
 - There is an admin user account which has permissions to delete or edit any user or bird photo on the site
 - A preview of the admin account on the gallery home page will show edit/delete options for all uploaded photos of birds, which are normally hidden unless the uploader is the current user:
-![admin_view](#)
+![admin_view](docs/test-screenshots/admin-view.png "Admin View")
 
 ### Custom Error Pages
 
