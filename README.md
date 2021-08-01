@@ -100,13 +100,12 @@ The Developer is looking to:
 
   - I want to a colourful, vibrant landing page that grabs me.
   - I'd like to see all the site content, and some of the features, before registration.
-  - I'll only register if it's the only way to like and upload photos.
+  - I'll only register if it's the only way to favourite and upload photos.
   - I'd like to eventually add my photos to the site, but doing so must be simple.
 
 - Repeat users
 
   - I'd like a nice profile page, easy login, and a quick fix if I forget my password.
-  - I'd like my favorite photos logged to my profile.
   - I'd like to be able to see the most popular photos and the newest.
   - I want to be able to edit/delete my uploads, and profile.
 
